@@ -100,6 +100,6 @@ public class NewCarBean implements Serializable{
         List<Integer> doorsCount = new ArrayList<Integer>();
         for (int i = 1; i < 6; i++)
             doorsCount.add(i);
-        return  doorsCount;
+        return doorsCount;
     }
 }
