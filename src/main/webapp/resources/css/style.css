@@ -1,0 +1,56 @@
+body{
+    background: linear-gradient(to top, #fefcea, #e0e0f1);
+}
+
+.forHeader{
+    height: 100%;
+    width: 100%;
+}
+
+#jv-wrapper {
+    margin-left:auto;
+    margin-right:auto;
+    padding: 0;
+    position: relative;
+    width: 80%;
+}
+
+#jv-main-header {
+    margin: 20px 0 0 0;
+}
+
+#jv-maintop {
+    height: 160px;
+    overflow: hidden;
+}
+
+#jv-topnav {
+    margin-left:auto;
+    margin-right: auto;
+}
+
+#jv-containerwrap {
+    margin-top: 2px;
+    background-color: #fff900;
+}
+
+#jv-container .jv-left-wrapper {
+    background: #faff35;
+    float: left;
+    width: 20%;
+}
+
+#jv-container .jv-content-wrapper {
+    width:80%;
+    float: right;
+}
+
+#jv-footer-wrapper {
+    margin: 0 0 20px 0;
+    padding: 25px 0 0 0;
+    width: 100%;
+    height: 71px;
+    overflow: hidden;
+    position: relative;
+    float: left;
+}
