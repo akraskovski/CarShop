@@ -7,11 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.io.Serializable;
 import java.util.List;
 
 @Component
-@Scope("request")
 public class CarSearchBean implements Serializable{
 
     private static final long serialVersionUID = 1L;
@@ -20,13 +20,24 @@ public class CarSearchBean implements Serializable{
     private CarService carService;
 
     private String mark;
-    private int stYear = 1960;
-    private int endYear = 2016;
-    private double stPrice = 0;
-    private double endPrice = 100000;
+    private int stYear;
+    private int endYear;
+    private double stPrice;
+    private double endPrice;
+    private List<Car> findCarsByParams;
 
-    public List<Car> getFindCars(){
-        return carService.getCarsByParams(mark, stYear, endYear, stPrice, endPrice);
+    @PostConstruct
+    public void init(){
+        mark = "";
+        stYear = 1960;
+        endYear = 2016;
+        stPrice = 0;
+        endPrice = 100000;
+    }
+
+    public String findCars(){
+        findCarsByParams = carService.getCarsByParams(mark, stYear, endYear, stPrice, endPrice);
+        return "findCars?faces-redirect=true";
     }
 
     //Getters and Setters
@@ -68,5 +79,13 @@ public class CarSearchBean implements Serializable{
 
     public void setEndPrice(double endPrice) {
         this.endPrice = endPrice;
+    }
+
+    public List<Car> getFindCarsByParams() {
+        return findCarsByParams;
+    }
+
+    public void setFindCarsByParams(List<Car> findCarsByParams) {
+        this.findCarsByParams = findCarsByParams;
     }
 }

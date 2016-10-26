@@ -67,9 +67,6 @@ public class CarBean implements Serializable {
             else
                 System.out.println("file not found");
         }
-        //for (Photo photo : selectedCar.getPhotos())
-          //  photoService.deletePhoto(photo);
-
         carService.deleteCar(selectedCar);
         engineService.deleteEngine(selectedCar.getEngineTable());
 

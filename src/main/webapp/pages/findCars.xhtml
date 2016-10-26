@@ -30,7 +30,7 @@
                             <f:facet name="header">
                                 Marks
                             </f:facet>
-                            <p:commandLink value="#{mark.mark}" action="findCars">
+                            <p:commandLink value="#{mark.mark}" action="#{carSearchBean.findCars}">
                                 <f:setPropertyActionListener value="#{mark.mark}" target="#{carSearchBean.mark}"/>
                             </p:commandLink>
                         </p:dataList>
@@ -40,7 +40,7 @@
                 <div class="jv-content-wrapper">
 
                     <h:form>
-                        <p:dataGrid var="car" value="#{carSearchBean.findCars}" columns="2" layout="grid"
+                        <p:dataGrid var="car" value="#{carSearchBean.findCarsByParams}" columns="2" layout="grid"
                                     rows="12" paginator="true" id="cars"
                         >
                             <f:facet name="header">
@@ -57,6 +57,9 @@
                                     <h:outputText value="#{car.year}"/>
                                     <h:outputText value="#{car.information}"/>
                                     <h:outputText value="$#{car.price}"/>
+                                    <p:commandLink value="more" action="carInfo?faces-redirect=true">
+                                        <f:setPropertyActionListener value="#{car}" target="#{carBean.selectedCar}"/>
+                                    </p:commandLink>
                                 </h:panelGrid>
                             </p:panel>
                         </p:dataGrid>

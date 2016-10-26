@@ -30,8 +30,8 @@
                             <f:facet name="header">
                                 Marks
                             </f:facet>
-                            <p:commandLink value="#{mark.mark}" action="findCars">
-                                <f:setPropertyActionListener value="#{mark.mark}" target="#{carSearchBean.mark}" />
+                            <p:commandLink value="#{mark.mark}" action="#{carSearchBean.findCars}">
+                                <f:setPropertyActionListener value="#{mark.mark}" target="#{carSearchBean.mark}"/>
                             </p:commandLink>
                         </p:dataList>
                     </div>

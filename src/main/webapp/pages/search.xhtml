@@ -68,7 +68,7 @@
                         <h:inputHidden id="startPrice" value="#{carSearchBean.stPrice}"/>
                         <h:inputHidden id="endPrice" value="#{carSearchBean.endPrice}"/>
 
-                        <p:commandButton value="Submit" action="findCars"/>
+                        <p:commandButton value="Submit" action="#{carSearchBean.findCars}"/>
                     </h:form>
                 </div>
             </div>
