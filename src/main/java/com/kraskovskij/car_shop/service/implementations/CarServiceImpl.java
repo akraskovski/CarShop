@@ -28,8 +28,8 @@ public class CarServiceImpl implements CarService{
 
     @Transactional(readOnly = true)
     @Override
-    public List<Car> getCarsByParams(String mark, int stYear, int endYear, double stPrice, double endPrice){
-        return carRepository.getCarsByParams(mark, stYear, endYear, stPrice, endPrice);
+    public List<Car> getCarsByParams(String mark, String type, String engineType, int stYear, int endYear, double stPrice, double endPrice, int stMileage, int endMileage){
+        return carRepository.getCarsByParams(mark, type, engineType, stYear, endYear, stPrice, endPrice, stMileage, endMileage);
     }
 
     @Override

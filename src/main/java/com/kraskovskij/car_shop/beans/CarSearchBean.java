@@ -20,23 +20,32 @@ public class CarSearchBean implements Serializable{
     private CarService carService;
 
     private String mark;
+    private String type;
+    private String engineType;
     private int stYear;
     private int endYear;
     private double stPrice;
     private double endPrice;
+    private int stMileage;
+    private int endMileage;
     private List<Car> findCarsByParams;
 
     @PostConstruct
     public void init(){
         mark = "";
+        type = "";
+        engineType = "";
         stYear = 1960;
         endYear = 2016;
         stPrice = 0;
         endPrice = 100000;
+        stMileage = 0;
+        endMileage = 500000;
     }
 
     public String findCars(){
-        findCarsByParams = carService.getCarsByParams(mark, stYear, endYear, stPrice, endPrice);
+        findCarsByParams = carService.getCarsByParams(mark, type, engineType, stYear, endYear, stPrice, endPrice, stMileage, endMileage);
+        init();
         return "findCars?faces-redirect=true";
     }
 
@@ -47,6 +56,14 @@ public class CarSearchBean implements Serializable{
 
     public void setMark(String mark) {
         this.mark = mark;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public int getStYear() {
@@ -79,6 +96,30 @@ public class CarSearchBean implements Serializable{
 
     public void setEndPrice(double endPrice) {
         this.endPrice = endPrice;
+    }
+
+    public String getEngineType() {
+        return engineType;
+    }
+
+    public void setEngineType(String engineType) {
+        this.engineType = engineType;
+    }
+
+    public int getStMileage() {
+        return stMileage;
+    }
+
+    public void setStMileage(int stMileage) {
+        this.stMileage = stMileage;
+    }
+
+    public int getEndMileage() {
+        return endMileage;
+    }
+
+    public void setEndMileage(int endMileage) {
+        this.endMileage = endMileage;
     }
 
     public List<Car> getFindCarsByParams() {

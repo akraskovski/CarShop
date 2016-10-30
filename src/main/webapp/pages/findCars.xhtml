@@ -49,7 +49,7 @@
                             <p:panel header="#{car.markTable.mark} #{car.model}" style="text-align:center">
                                 <h:panelGrid columns="1" style="width:100%">
 
-                                    <p:commandLink action="carInfo">
+                                    <p:commandLink action="carInfo?faces-redirect=true">
                                         <p:graphicImage library="images" name="#{carBean.getFirstPhoto(car)}"
                                                         width="290px" height="220px"/>
                                         <f:setPropertyActionListener value="#{car}" target="#{carBean.selectedCar}"/>

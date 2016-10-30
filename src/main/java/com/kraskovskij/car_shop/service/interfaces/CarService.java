@@ -9,7 +9,7 @@ public interface CarService {
 
     List<Car> getAllCars();
 
-    List<Car> getCarsByParams(String mark, int stYear, int endYear, double stPrice, double endPrice);
+    List<Car> getCarsByParams(String mark, String type, String engineType, int stYear, int endYear, double stPrice, double endPrice, int stMileage, int endMileage);
 
     void saveCar(Car car);
 
