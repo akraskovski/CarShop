@@ -27,4 +27,10 @@ public class EngineServiceImpl implements EngineService{
     public void deleteEngine(Engine engine){
         engineRepository.delete(engine);
     }
+
+    @Override
+    public void updateEngine(Engine engine) {
+        engineRepository.updateEngineById(engine.getId(), engine.getEngineType(), engine.getVolume(),
+                engine.getHp(), engine.getNm(), engine.getTransmission());
+    }
 }

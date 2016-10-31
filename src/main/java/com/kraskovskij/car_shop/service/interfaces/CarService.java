@@ -14,4 +14,6 @@ public interface CarService {
     void saveCar(Car car);
 
     void deleteCar(Car car);
+
+    void updateCar(Car car);
 }

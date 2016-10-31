@@ -74,4 +74,10 @@ public class CarBean implements Serializable {
         selectedCar = null;
         return "index";
     }
+
+    public String updateCar() {
+        engineService.updateEngine(selectedCar.getEngineTable());
+        carService.updateCar(selectedCar);
+        return "index";
+    }
 }

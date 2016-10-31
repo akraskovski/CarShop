@@ -28,7 +28,8 @@ public class CarServiceImpl implements CarService{
 
     @Transactional(readOnly = true)
     @Override
-    public List<Car> getCarsByParams(String mark, String type, String engineType, int stYear, int endYear, double stPrice, double endPrice, int stMileage, int endMileage){
+    public List<Car> getCarsByParams(String mark, String type, String engineType, int stYear, int endYear,
+                                     double stPrice, double endPrice, int stMileage, int endMileage){
         return carRepository.getCarsByParams(mark, type, engineType, stYear, endYear, stPrice, endPrice, stMileage, endMileage);
     }
 
@@ -40,5 +41,11 @@ public class CarServiceImpl implements CarService{
     @Override
     public void deleteCar(Car car){
         carRepository.delete(car);
+    }
+
+    @Override
+    public void updateCar(Car car) {
+        carRepository.updateCarById(car.getModel(), car.getMileage(), car.getTypeTable(),
+                car.getId(), car.getDoors(), car.getYear(), car.getInformation(), car.getPrice());
     }
 }

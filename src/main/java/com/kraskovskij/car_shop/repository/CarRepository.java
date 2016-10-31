@@ -1,10 +1,11 @@
 package com.kraskovskij.car_shop.repository;
 
-import com.kraskovskij.car_shop.entities.Car;
-import com.kraskovskij.car_shop.entities.Mark;
+import com.kraskovskij.car_shop.entities.*;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.security.access.method.P;
 
 import java.util.List;
 
@@ -19,10 +20,23 @@ public interface CarRepository extends JpaRepository<Car, Integer>{
     List<Car> getCarsByParams(@Param("mark")String mark,
                               @Param("type")String type,
                               @Param("engineType")String engineType,
-                              @Param("stYear")int stYear,
-                              @Param("endYear")int endYear,
-                              @Param("stPrice")double stPrice,
-                              @Param("endPrice")double endPrice,
-                              @Param("stMileage")int stMileage,
-                              @Param("endMileage")int endMileage);
+                              @Param("stYear")Integer stYear,
+                              @Param("endYear")Integer endYear,
+                              @Param("stPrice")Double stPrice,
+                              @Param("endPrice")Double endPrice,
+                              @Param("stMileage")Integer stMileage,
+                              @Param("endMileage")Integer endMileage);
+
+    @Modifying
+    @Query("update Car c set c.model = :model, c.mileage = :mileage," +
+            " c.typeTable = :type, c.doors = :doors, c.year = :year," +
+            " c.information = :info, c.price = :price where c.id = :id")
+    void updateCarById(@Param("model")String model,
+                       @Param("mileage")Integer mileage,
+                       @Param("type")Type type,
+                       @Param("id")Integer id,
+                       @Param("doors")Integer doors,
+                       @Param("year")Integer year,
+                       @Param("info")String info,
+                       @Param("price")Double price);
 }
