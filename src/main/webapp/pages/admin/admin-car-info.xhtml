@@ -18,7 +18,7 @@
     <div id="jv-wrapper">
 
         <ui:insert name="header">
-            <ui:include src="../modules/header.xhtml" />
+            <ui:include src="../../modules/admin/admin-header.xhtml" />
         </ui:insert>
 
         <div id = "jv-containerwrap">
@@ -75,7 +75,7 @@
                                 <h:outputText value="#{carBean.selectedCar.information}"/>
                                 <h2>$#{carBean.selectedCar.price}</h2>
                                 <p:commandButton value="Delete" action="#{carBean.deleteCar}"/>
-                                <p:commandButton value="Edit" action="editCar?faces-redirect=true"/>
+                                <p:commandButton value="Edit" action="admin-edit-car?faces-redirect=true"/>
                             </p:panel>
                         </h:form>
                     </p:outputPanel>
@@ -84,8 +84,9 @@
         </div>
 
         <ui:insert name="footer">
-            <ui:include src="../modules/footer.xhtml" />
+            <ui:include src="../../modules/footer.xhtml" />
         </ui:insert>
+
     </div>
 
 </h:body>

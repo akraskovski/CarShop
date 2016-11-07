@@ -21,10 +21,6 @@ public class EngineTypeBean implements Serializable{
 
     private List<EngineType> allEngineTypes;
 
-    public EngineTypeBean(EngineTypeService engineTypeService) {
-        this.engineTypeService = engineTypeService;
-    }
-
     @PostConstruct
     public void init(){
         allEngineTypes = engineTypeService.getAllEngineTypes();

@@ -10,4 +10,16 @@
         </el-resolver>
     </application>
 
+    <navigation-rule>
+        <display-name>pages/index.xhtml</display-name>
+        <from-view-id>/pages/user/index.xhtml/index.xhtml</from-view-id>
+
+        <navigation-case>
+            <from-action>#{loginController.login}</from-action>
+            <from-outcome>Secured</from-outcome>
+            <to-view-id>/pages/admin/admin-index.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+
 </faces-config>

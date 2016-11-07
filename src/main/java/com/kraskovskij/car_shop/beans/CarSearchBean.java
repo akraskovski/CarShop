@@ -46,7 +46,13 @@ public class CarSearchBean implements Serializable{
     public String findCars(){
         findCarsByParams = carService.getCarsByParams(mark, type, engineType, stYear, endYear, stPrice, endPrice, stMileage, endMileage);
         init();
-        return "findCars?faces-redirect=true";
+        return "find-cars?faces-redirect=true";
+    }
+
+    public String findCarsAdmin(){
+        findCarsByParams = carService.getCarsByParams(mark, type, engineType, stYear, endYear, stPrice, endPrice, stMileage, endMileage);
+        init();
+        return "admin-find-cars?faces-redirect=true";
     }
 
     //Getters and Setters

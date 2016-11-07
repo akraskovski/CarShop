@@ -6,7 +6,6 @@ import com.kraskovskij.car_shop.entities.Photo;
 import com.kraskovskij.car_shop.service.interfaces.CarService;
 import com.kraskovskij.car_shop.service.interfaces.EngineService;
 import com.kraskovskij.car_shop.service.interfaces.PhotoService;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -72,12 +71,12 @@ public class CarBean implements Serializable {
 
         allCars.remove(selectedCar);
         selectedCar = null;
-        return "index";
+        return "admin-index";
     }
 
     public String updateCar() {
         engineService.updateEngine(selectedCar.getEngineTable());
         carService.updateCar(selectedCar);
-        return "index";
+        return "admin-index";
     }
 }

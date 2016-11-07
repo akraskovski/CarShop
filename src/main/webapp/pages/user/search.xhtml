@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+>
+
+<h:head>
+    <title>Car's sale</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+
+<h:body>
+
+    <div id="jv-wrapper">
+
+        <ui:insert name="header">
+            <ui:include src="../../modules/header.xhtml"/>
+        </ui:insert>
+
+        <!-- Body(container) -->
+        <div id="jv-containerwrap">
+            <div id="jv-container">
+                <div class="jv-left-wrapper">
+                    <div id="jv-left">
+                        <p:dataList value="#{markBean.allMarks}" var="mark" style="width:100%; margin:10px 0px">
+                            <f:facet name="header">
+                                Marks
+                            </f:facet>
+                            <p:commandLink value="#{mark.mark}" action="#{carSearchBean.findCars}">
+                                <f:setPropertyActionListener value="#{mark.mark}" target="#{carSearchBean.mark}"/>
+                            </p:commandLink>
+                        </p:dataList>
+                    </div>
+                </div>
+
+                <div class="jv-content-wrapper">
+                    <h:form>
+                        <p:panelGrid columns="2">
+                            <p:outputLabel for="marks" value="Select mark:"/>
+                            <p:selectOneMenu id="marks" value="#{carSearchBean.mark}" effect="fade">
+                                <f:selectItem itemLabel="All marks" itemValue=""/>
+                                <f:selectItems value="#{markBean.allMarks}" var="mark" itemLabel="#{mark.mark}"
+                                               itemValue="#{mark.mark}"/>
+                            </p:selectOneMenu>
+
+                            <p:outputLabel for="types" value="Select type:"/>
+                            <p:selectOneMenu id="types" value="#{carSearchBean.type}" effect="fade">
+                                <f:selectItem itemLabel="All types" itemValue=""/>
+                                <f:selectItems value="#{typeBean.allTypes}" var="type" itemLabel="#{type.type}"
+                                               itemValue="#{type.type}"/>
+                            </p:selectOneMenu>
+
+                            <p:outputLabel for="yearRange" value="Select year:"/>
+                            <h:panelGrid columns="1" style="margin-bottom: 10px">
+                                <h:outputText id="yearRange"
+                                              value="Between #{carSearchBean.stYear} and #{carSearchBean.endYear}"/>
+                                <p:slider for="startYear,endYear" display="yearRange" minValue="1960" maxValue="2016"
+                                          style="width: 400px"
+                                          range="true" displayTemplate="Between {min} and {max}"/>
+                            </h:panelGrid>
+                            <h:inputHidden id="startYear" value="#{carSearchBean.stYear}"/>
+                            <h:inputHidden id="endYear" value="#{carSearchBean.endYear}"/>
+
+                            <p:outputLabel for="mileageRange" value="Mileage:"/>
+                            <h:panelGrid columns="1" style="margin-bottom: 10px">
+                                <h:outputText id="mileageRange"
+                                              value="Between #{carSearchBean.stMileage} and #{carSearchBean.endMileage}"/>
+                                <p:slider for="startMileage,endMileage" display="mileageRange" minValue="0"
+                                          maxValue="500000"
+                                          style="width: 400px" step="10000"
+                                          range="true" displayTemplate="Between {min} and {max}"/>
+                            </h:panelGrid>
+                            <h:inputHidden id="startMileage" value="#{carSearchBean.stMileage}"/>
+                            <h:inputHidden id="endMileage" value="#{carSearchBean.endMileage}"/>
+
+                            <p:outputLabel for="engine" value="Select engine type:"/>
+                            <p:selectOneMenu id="engine" value="#{carSearchBean.engineType}" effect="fade">
+                                <f:selectItem itemLabel="All types" itemValue=""/>
+                                <f:selectItems value="#{engineTypeBean.allEngineTypes}" var="enType"
+                                               itemLabel="#{enType.type}"
+                                               itemValue="#{enType.type}"/>
+                            </p:selectOneMenu>
+
+                            <p:outputLabel for="priceRange" value="Price:"/>
+                            <h:panelGrid columns="1" style="margin-bottom: 10px">
+                                <h:outputText id="priceRange"
+                                              value="Between #{carSearchBean.stPrice} and #{carSearchBean.endPrice}"/>
+                                <p:slider for="startPrice,endPrice" display="priceRange" minValue="0" maxValue="100000"
+                                          style="width: 400px"
+                                          range="true" displayTemplate="Between {min} and {max}" step="1000"/>
+                            </h:panelGrid>
+                            <h:inputHidden id="startPrice" value="#{carSearchBean.stPrice}"/>
+                            <h:inputHidden id="endPrice" value="#{carSearchBean.endPrice}"/>
+                        </p:panelGrid>
+
+                        <p:commandButton value="Submit" action="#{carSearchBean.findCars}"/>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+
+        <ui:insert name="footer">
+            <ui:include src="../../modules/footer.xhtml"/>
+        </ui:insert>
+
+    </div>
+</h:body>
+</html>

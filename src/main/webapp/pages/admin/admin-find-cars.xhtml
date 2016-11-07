@@ -18,7 +18,7 @@
     <div id="jv-wrapper">
 
         <ui:insert name="header">
-            <ui:include src="../modules/header.xhtml"/>
+            <ui:include src="../../modules/admin/admin-header.xhtml" />
         </ui:insert>
 
         <!-- Body(container) -->
@@ -49,7 +49,7 @@
                             <p:panel header="#{car.markTable.mark} #{car.model}" style="text-align:center">
                                 <h:panelGrid columns="1" style="width:100%">
 
-                                    <p:commandLink action="carInfo?faces-redirect=true">
+                                    <p:commandLink action="admin-car-info?faces-redirect=true">
                                         <p:graphicImage library="images" name="#{carBean.getFirstPhoto(car)}"
                                                         width="290px" height="220px"/>
                                         <f:setPropertyActionListener value="#{car}" target="#{carBean.selectedCar}"/>
@@ -57,7 +57,7 @@
                                     <h:outputText value="#{car.year}"/>
                                     <h:outputText value="#{car.information}"/>
                                     <h:outputText value="$#{car.price}"/>
-                                    <p:commandLink value="more" action="carInfo?faces-redirect=true">
+                                    <p:commandLink value="more" action="admin-car-info?faces-redirect=true">
                                         <f:setPropertyActionListener value="#{car}" target="#{carBean.selectedCar}"/>
                                     </p:commandLink>
                                 </h:panelGrid>
@@ -67,8 +67,9 @@
                 </div>
             </div>
         </div>
+
         <ui:insert name="footer">
-            <ui:include src="../modules/footer.xhtml"/>
+            <ui:include src="../../modules/footer.xhtml" />
         </ui:insert>
     </div>
 

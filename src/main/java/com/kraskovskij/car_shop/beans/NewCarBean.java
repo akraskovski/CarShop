@@ -85,7 +85,7 @@ public class NewCarBean implements Serializable{
             }
 
         carBean.getAllCars().add(car);
-        return "index";
+        return "admin-index";
     }
 
     //Getters and Setters

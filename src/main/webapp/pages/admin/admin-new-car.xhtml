@@ -9,15 +9,16 @@
       xmlns:fn="http://java.sun.com/jsp/jstl/functions">
 
 <h:head>
-    <title>Edit car</title>
+    <title>Car's sale</title>
     <h:outputStylesheet library="css" name="style.css"/>
 </h:head>
 
 <h:body>
 
     <div id="jv-wrapper">
+
         <ui:insert name="header">
-            <ui:include src="../modules/header.xhtml"/>
+            <ui:include src="../../modules/admin/admin-header.xhtml" />
         </ui:insert>
 
         <!-- Body(container) -->
@@ -37,25 +38,45 @@
                 </div>
                 <div class="jv-content-wrapper">
 
-                    <p:panel header="Edit car" id="grid">
+                    <p:panel header="NEW AD" id="grid">
 
+                        <h:form enctype="multipart/form-data">
+
+                            <p:outputLabel value="Choose car photos (maximum 8) and press 'Upload'"/>
+                            <p:growl id="msg" showDetail="true"/>
+                            <p:fileUpload value="#{photoBean.uploadedFile}"
+                                          mode="advanced"
+                                          multiple="true"
+                                          fileLimit="8"
+                                          allowTypes="/(\.|\/)(gif|jpe?g|png)$/"
+                                          fileUploadListener="#{photoBean.uploadPhoto}"
+                                          update="msg"
+                            />
+                        </h:form>
                         <h:form>
+                            <p:selectOneMenu id="mark" value="#{carModelBean.markId}" effect="fade" required="true"
+                                             label="Mark">
+                                <f:selectItem itemLabel="Select mark" itemValue=""/>
+                                <f:selectItems value="#{markBean.allMarks}" var="mark" itemLabel="#{mark.mark}"
+                                               itemValue="#{mark.id}"/>
+                            </p:selectOneMenu>
+                            <p:message for="mark"/>
 
                             <h:outputLabel for="model" value="Enter model:" style="font-weight:bold"/>
-                            <p:inputText id="model" value="#{carBean.selectedCar.model}" required="true" label="Model">
+                            <p:inputText id="model" value="#{carModelBean.model}" required="true" label="Model">
                                 <f:validateLength minimum="2" maximum="45"/>
                                 <p:clientValidator/>
                             </p:inputText>
                             <p:message for="model"/>
 
                             <h:outputLabel for="mileage" value="Enter mileage:" style="font-weight:bold"/>
-                            <p:inputText id="mileage" value="#{carBean.selectedCar.mileage}" required="true" label="Mileage">
+                            <p:inputText id="mileage" value="#{carModelBean.mileage}" required="true" label="Mileage">
                                 <f:validateLength minimum="1" maximum="7"/>
                                 <p:clientValidator/>
                             </p:inputText>
                             <p:message for="mileage"/>
 
-                            <p:selectOneMenu id="type" value="#{carBean.selectedCar.typeTable.id}" effect="fade" required="true"
+                            <p:selectOneMenu id="type" value="#{carModelBean.typeId}" effect="fade" required="true"
                                              label="Type">
                                 <f:selectItem itemLabel="Select type" itemValue=""/>
                                 <f:selectItems value="#{typeBean.allTypes}" var="type" itemLabel="#{type.type}"
@@ -63,7 +84,7 @@
                             </p:selectOneMenu>
                             <p:message for="type"/>
 
-                            <p:selectOneMenu id="doors" value="#{carBean.selectedCar.doors}" effect="fade" required="true"
+                            <p:selectOneMenu id="doors" value="#{carModelBean.doors}" effect="fade" required="true"
                                              label="Doors">
                                 <f:selectItem itemLabel="Select doors count" itemValue=""/>
                                 <f:selectItems value="#{newCarBean.doorsCount}" var="door" itemLabel="#{door}"
@@ -71,7 +92,7 @@
                             </p:selectOneMenu>
                             <p:message for="type"/>
 
-                            <p:selectOneMenu id="year" value="#{carBean.selectedCar.year}" effect="fade" required="true"
+                            <p:selectOneMenu id="year" value="#{carModelBean.year}" effect="fade" required="true"
                                              label="Year">
                                 <f:selectItem itemLabel="Select year" itemValue=""/>
                                 <f:selectItems value="#{newCarBean.years}" var="year" itemLabel="#{year}"
@@ -79,7 +100,7 @@
                             </p:selectOneMenu>
                             <p:message for="year"/>
 
-                            <p:selectOneMenu id="engineType" value="#{carBean.selectedCar.engineTable.engineType.id}" effect="fade"
+                            <p:selectOneMenu id="engineType" value="#{engineModelBean.engineTypeId}" effect="fade"
                                              required="true" label="Engine Type">
                                 <f:selectItem itemLabel="Select engine type" itemValue=""/>
                                 <f:selectItems value="#{engineTypeBean.allEngineTypes}" var="engineType"
@@ -89,27 +110,27 @@
                             <p:message for="engineType"/>
 
                             <h:outputLabel for="volume" value="Enter volume:" style="font-weight:bold"/>
-                            <p:inputText id="volume" value="#{carBean.selectedCar.engineTable.volume}" required="true" label="Volume">
+                            <p:inputText id="volume" value="#{engineModelBean.volume}" required="true" label="Volume">
                                 <f:validateLength minimum="3" maximum="4"/>
                                 <p:clientValidator/>
                             </p:inputText>
                             <p:message for="volume"/>
 
                             <h:outputLabel for="hp" value="Enter horse power:" style="font-weight:bold"/>
-                            <p:inputText id="hp" value="#{carBean.selectedCar.engineTable.hp}" required="false" label="Horse power">
+                            <p:inputText id="hp" value="#{engineModelBean.hp}" required="false" label="Horse power">
                                 <f:validateLength minimum="0" maximum="4"/>
                                 <p:clientValidator/>
                             </p:inputText>
                             <p:message for="hp"/>
 
                             <h:outputLabel for="nm" value="Enter torque:" style="font-weight:bold"/>
-                            <p:inputText id="nm" value="#{carBean.selectedCar.engineTable.nm}" required="false" label="Torque">
+                            <p:inputText id="nm" value="#{engineModelBean.nm}" required="false" label="Torque">
                                 <f:validateLength minimum="1" maximum="4"/>
                                 <p:clientValidator/>
                             </p:inputText>
                             <p:message for="nm"/>
 
-                            <p:selectOneMenu id="transmission" value="#{carBean.selectedCar.engineTable.transmission.id}" effect="fade"
+                            <p:selectOneMenu id="transmission" value="#{engineModelBean.transmissionId}" effect="fade"
                                              required="true" label="Transmission">
                                 <f:selectItem itemLabel="Select transmission" itemValue=""/>
                                 <f:selectItems value="#{transmissionBean.allTransmissions}" var="trans"
@@ -126,7 +147,7 @@
                                     maxlength="250"
                                     counterTemplate="{0} characters remaining."
                                     autoResize="true"
-                                    value="#{carBean.selectedCar.information}"
+                                    value="#{carModelBean.info}"
                                     required="false"
                                     label="Information"
                                     style="width: 350px"
@@ -134,13 +155,13 @@
                             <h:outputText id="display"/>
                             <p:message for="info"/>
 
-                            <p:inputText id="price" value="#{carBean.selectedCar.price}" required="true" label="Price">
+                            <p:inputText id="price" value="#{carModelBean.price}" required="true" label="Price">
                                 <f:validateDoubleRange minimum="0.0" maximum="100000.0"/>
                                 <p:clientValidator/>
                             </p:inputText>
                             <p:message for="price"/>
 
-                            <p:commandButton value="Update" update="grid" action="#{carBean.updateCar}"/>
+                            <p:commandButton value="Add" update="grid" action="#{newCarBean.saveCar}"/>
                         </h:form>
                     </p:panel>
                 </div>
@@ -148,8 +169,9 @@
         </div>
 
         <ui:insert name="footer">
-            <ui:include src="../modules/footer.xhtml"/>
+            <ui:include src="../../modules/footer.xhtml" />
         </ui:insert>
+
     </div>
 
 </h:body>

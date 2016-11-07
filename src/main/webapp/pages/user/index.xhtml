@@ -18,7 +18,7 @@
     <div id="jv-wrapper">
 
         <ui:insert name="header">
-            <ui:include src="../modules/header.xhtml" />
+            <ui:include src="../../modules/header.xhtml" />
         </ui:insert>
 
         <!-- Body(container) -->
@@ -42,7 +42,7 @@
                         <p:carousel value="#{carBean.allCars}" headerText="Random cars" var="car" itemStyle="text-align:center" responsive="true">
                             <p:panelGrid columns="1" style="width:100%;margin:10px 0px" columnClasses="label,value" layout="grid" styleClass="ui-panelgrid-blank">
                                 <f:facet name="header">
-                                    <p:commandLink action="carInfo?faces-redirect=true">
+                                    <p:commandLink action="car-info?faces-redirect=true">
                                         <p:graphicImage library="images" name="#{carBean.getFirstPhoto(car)}" width="290px" height="220px" />
                                         <f:setPropertyActionListener value="#{car}" target="#{carBean.selectedCar}" />
                                     </p:commandLink>
@@ -56,7 +56,7 @@
 
                                 <h:outputText value="Price: $#{car.price}" />
 
-                                <p:commandLink value="More" action="carInfo?faces-redirect=true">
+                                <p:commandLink value="More" action="car-info?faces-redirect=true">
                                     <f:setPropertyActionListener value="#{car}" target="#{carBean.selectedCar}" />
                                 </p:commandLink>
                             </p:panelGrid>
@@ -71,7 +71,7 @@
             </div>
         </div>
         <ui:insert name="footer">
-            <ui:include src="../modules/footer.xhtml" />
+            <ui:include src="../../modules/footer.xhtml" />
         </ui:insert>
     </div>
 

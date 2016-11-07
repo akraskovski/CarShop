@@ -21,10 +21,6 @@ public class TransmissionBean implements Serializable{
 
     private List<Transmission> allTransmissions;
 
-    public TransmissionBean(TransmissionService transmissionService) {
-        this.transmissionService = transmissionService;
-    }
-
     @PostConstruct
     public void init(){
         allTransmissions = transmissionService.getAllTransmissions();

@@ -17,13 +17,9 @@ public class TypeBean implements Serializable{
     private static final long serialVersionUID = 1L;
 
     @Autowired
-    private final TypeService typeService;
+    TypeService typeService;
 
     private List<Type> allTypes;
-
-    public TypeBean(TypeService typeService) {
-        this.typeService = typeService;
-    }
 
     @PostConstruct
     public void init(){
