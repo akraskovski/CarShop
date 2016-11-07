@@ -14,7 +14,7 @@
         <form-login login-page="/pages/login.xhtml" default-target-url="/pages/admin/admin-index.xhtml"/>
 
         <!-- Custom logout page -->
-        <logout />
+        <logout logout-success-url="/pages/user/index.xhtml"/>
 
         <anonymous username="guest" granted-authority="ROLE_ANONYMOUS"/>
     </http>

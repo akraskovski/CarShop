@@ -26,14 +26,6 @@ public class LoginController implements PhaseListener {
 
     protected final Log logger = LogFactory.getLog(getClass());
 
-    /**
-     * Redirects the login request directly to spring security check.
-     * Leave this method as it is to properly support spring security.
-     *
-     * @return
-     * @throws ServletException
-     * @throws IOException
-     */
     public String doLogin() throws ServletException, IOException {
         ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
 
@@ -51,11 +43,6 @@ public class LoginController implements PhaseListener {
     public void afterPhase(PhaseEvent event) {
     }
 
-    /* (non-Javadoc)
-     * @see javax.faces.event.PhaseListener#beforePhase(javax.faces.event.PhaseEvent)
-     *
-     * Do something before rendering phase.
-     */
     public void beforePhase(PhaseEvent event) {
         Exception e = (Exception) FacesContext.getCurrentInstance().
                 getExternalContext().getSessionMap().get(WebAttributes.AUTHENTICATION_EXCEPTION);
@@ -70,11 +57,6 @@ public class LoginController implements PhaseListener {
         }
     }
 
-    /* (non-Javadoc)
-     * @see javax.faces.event.PhaseListener#getPhaseId()
-     *
-     * In which phase you want to interfere?
-     */
     public PhaseId getPhaseId() {
         return PhaseId.RENDER_RESPONSE;
     }
