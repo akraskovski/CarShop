@@ -11,7 +11,7 @@
         <intercept-url pattern="/pages/user/**" access="isAnonymous()"/>
 
         <!-- Custom login page -->
-        <form-login login-page="/pages/login.xhtml" default-target-url="/pages/admin/admin-index.xhtml"/>
+        <form-login login-page="/pages/user/login.xhtml" default-target-url="/pages/admin/admin-index.xhtml"/>
 
         <!-- Custom logout page -->
         <logout logout-success-url="/pages/user/index.xhtml"/>

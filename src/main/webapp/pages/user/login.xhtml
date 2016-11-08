@@ -4,33 +4,68 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+
 <h:head>
-    <title>Login page</title>
+    <title>Car's sale Home page</title>
+    <h:outputStylesheet library="css" name="style.css"/>
 </h:head>
+
 <h:body>
-    <h2>This is the custom login page. You can define whatever you want here.</h2>
 
-    <h:form id="loginForm" prependId="false">
-        <!-- Messages must be global here, to show bad credentials -->
-        <h:messages globalOnly="true"/>
+    <div id="jv-wrapper">
 
-        <!-- Id's must not be changed to support spring security check -->
-        <h:panelGrid columns="3">
-            <h:outputLabel for="j_username" value="User: * " />
-            <h:inputText id="j_username" required="true" label="username" />
-            <h:message for="j_username" display="text" style="color:red"/>
+        <ui:insert name="header">
+            <ui:include src="../../modules/header.xhtml"/>
+        </ui:insert>
 
-            <h:outputLabel for="j_password" value="Password: * " />
-            <h:inputSecret id="j_password" label="password" required="true" />
-            <h:message for="j_password" display="text" style="color:red"/>
+        <!-- Body(container) -->
+        <div id="jv-containerwrap">
+            <div id="jv-container">
+                <div class="jv-left-wrapper">
+                    <div id="jv-left">
+                        <p:dataList value="#{markBean.allMarks}" var="mark" style="width:100%; margin:10px 0px">
+                            <f:facet name="header">
+                                Marks
+                            </f:facet>
+                            <p:commandLink value="#{mark.mark}" action="#{carSearchBean.findCars}">
+                                <f:setPropertyActionListener value="#{mark.mark}" target="#{carSearchBean.mark}"/>
+                            </p:commandLink>
+                        </p:dataList>
+                    </div>
+                </div>
 
-            <h:outputLabel for="_spring_security_remember_me" value="Remember me: " />
-            <h:selectBooleanCheckbox    id="_spring_security_remember_me" />
-        </h:panelGrid>
+                <div class="jv-content-wrapper">
+                    <h:form id="loginForm" prependId="false">
+                        <!-- Messages must be global here, to show bad credentials -->
+                        <h:messages globalOnly="true"/>
 
-        <h:commandButton type="submit" id="login" value="Login"
-                         action="#{loginController.doLogin}" />
-    </h:form>
+                        <!-- Id's must not be changed to support spring security check -->
+                        <h:panelGrid columns="3">
+                            <h:outputLabel for="j_username" value="User: * "/>
+                            <h:inputText id="j_username" required="true" label="username"/>
+                            <h:message for="j_username" display="text" style="color:red"/>
+
+                            <h:outputLabel for="j_password" value="Password: * "/>
+                            <h:inputSecret id="j_password" label="password" required="true"/>
+                            <h:message for="j_password" display="text" style="color:red"/>
+
+                            <h:outputLabel for="_spring_security_remember_me" value="Remember me: "/>
+                            <h:selectBooleanCheckbox id="_spring_security_remember_me"/>
+                        </h:panelGrid>
+
+                        <h:commandButton type="submit" id="login" value="Login"
+                                         action="#{loginController.doLogin}"/>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+        <ui:insert name="footer">
+            <ui:include src="../../modules/footer.xhtml"/>
+        </ui:insert>
+    </div>
+
 </h:body>
 </html>

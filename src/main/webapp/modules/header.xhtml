@@ -8,17 +8,21 @@
       xmlns:p="http://primefaces.org/ui">
 <f:view>
     <!-- Header -->
-    <div id ="jv-main-header">
+    <div id="jv-main-header">
 
         <div id="jv-maintop">
-            <p:graphicImage library="images" name="avto26.jpg" styleClass="forHeader"/>
+            <p:imageSwitch effect="fade" id="fadeEffect" >
+                <ui:repeat value="#{photoBean.background}" var="image" id="fadeEffectImages">
+                    <p:graphicImage library="images" name="#{image}" id="image" styleClass="backgroundImage"/>
+                </ui:repeat>
+            </p:imageSwitch>
         </div>
 
         <div id="jv-topnav">
-            <h:form style="text-align: left">
+            <h:form>
                 <p:button outcome="index" value="Home" icon="ui-icon-star"/>
                 <p:button outcome="search" value="Search" icon="ui-icon-star"/>
-                <p:button outcome="login" value="Login" icon="ui-icon-star" style="text-align: right"/>
+                <p:button outcome="login" value="Login" icon="ui-icon-star" style="alignment: right; text-align: right"/>
             </h:form>
         </div>
     </div>

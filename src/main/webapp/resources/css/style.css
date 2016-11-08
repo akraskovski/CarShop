@@ -2,25 +2,25 @@ body{
     background: linear-gradient(to top, #fefcea, #e0e0f1);
 }
 
-.forHeader{
-    height: 100%;
-    width: 100%;
-}
-
 #jv-wrapper {
+    margin-top: 30px;
     margin-left:auto;
     margin-right:auto;
     padding: 0;
     position: relative;
-    width: 80%;
+    width: 65%;
+    border: 3px groove black;
+    border-radius: 10px;
+
 }
 
 #jv-main-header {
-    margin: 20px 0 0 0;
+
 }
 
 #jv-maintop {
-    height: 160px;
+    height: 300px;
+    width: 100%;
     overflow: hidden;
 }
 
@@ -29,9 +29,13 @@ body{
     margin-right: auto;
 }
 
+.backgroundImage {
+    height: 300px;
+    width: 100%;
+}
+
 #jv-containerwrap {
     margin-top: 2px;
-    background-color: #fff900;
 }
 
 #jv-container .jv-left-wrapper {

@@ -25,11 +25,15 @@ public class PhotoBean implements Serializable{
     private UploadedFile uploadedFile;
     private List<InputStream> streams;
     private List<Photo> photos;
+    private List<String> background;
 
     @PostConstruct
     public void init(){
         streams = new ArrayList<>();
         photos = new ArrayList<>();
+        background = new ArrayList<>();
+        for (int i = 1; i <= 6; i++)
+            background.add("background" + i + ".jpg");
     }
 
     public void uploadPhoto(FileUploadEvent e) throws IOException {
@@ -46,7 +50,7 @@ public class PhotoBean implements Serializable{
                 Photo photo = new Photo();
                 File f = null;
                 try {
-                    f = File.createTempFile("car", ".jpg", new File("E:\\CarShop\\src\\main\\webapp\\resources\\images\\"));
+                    f = File.createTempFile("car", ".jpg", new File("D:\\CarShop\\src\\main\\webapp\\resources\\images\\"));
                     Files.copy(input, f.toPath(), StandardCopyOption.REPLACE_EXISTING);
                     photo.setPath(f.getName());
                     photos.add(photo);
@@ -72,5 +76,9 @@ public class PhotoBean implements Serializable{
 
     public void setPhotos(List<Photo> photos) {
         this.photos = photos;
+    }
+
+    public List<String> getBackground() {
+        return background;
     }
 }
