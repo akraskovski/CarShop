@@ -15,10 +15,17 @@
         <from-view-id>/pages/user/index.xhtml/index.xhtml</from-view-id>
 
         <navigation-case>
-            <from-action>#{loginController.login}</from-action>
+            <from-action>#{loginController.doLogin}</from-action>
             <from-outcome>Secured</from-outcome>
             <to-view-id>/pages/admin/admin-index.xhtml</to-view-id>
-            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/pages/admin/*</from-view-id>
+        <navigation-case>
+            <from-outcome>logout</from-outcome>
+            <to-view-id>/j_spring_security_logout?faces-redirect=true</to-view-id>
         </navigation-case>
     </navigation-rule>
 

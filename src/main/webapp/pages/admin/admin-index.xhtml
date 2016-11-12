@@ -21,15 +21,12 @@
             <ui:include src="../../modules/admin/admin-header.xhtml" />
         </ui:insert>
 
-        <!-- Body(container) -->
         <div id = "jv-containerwrap">
             <div id="jv-container">
                 <div class="jv-left-wrapper">
                     <div id="jv-left">
                         <p:dataList value="#{markBean.allMarks}" var="mark" style="width:100%; margin:10px 0px">
-                            <f:facet name="header">
-                                Marks
-                            </f:facet>
+                            <f:facet name="header">Marks</f:facet>
                             <p:commandLink value="#{mark.mark}" action="#{carSearchBean.findCarsAdmin}">
                                 <f:setPropertyActionListener value="#{mark.mark}" target="#{carSearchBean.mark}"/>
                             </p:commandLink>

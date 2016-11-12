@@ -39,6 +39,12 @@
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
 
+    <!-- Primefaces theme -->
+    <context-param>
+        <param-name>primefaces.THEME</param-name>
+        <param-value>bootstrap</param-value>
+    </context-param>
+
      <!--Enable Spring Security-->
     <filter>
         <filter-name>springSecurityFilterChain</filter-name>
