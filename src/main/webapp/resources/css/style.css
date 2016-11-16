@@ -1,5 +1,5 @@
 body{
-    background: linear-gradient(45deg, snow, #C5DDE8);
+    background: linear-gradient(90deg, #fffafa, #edeef0);
 }
 
 #jv-wrapper {
@@ -15,8 +15,8 @@ body{
     height: 300px;
     width: 100%;
     overflow: hidden;
-    border: 3px groove black;
-    border-radius: 10px;
+    border: 1px groove black;
+    border-radius: 5px;
 }
 
 #jv-topnav {
@@ -35,13 +35,23 @@ body{
 .jv-left-wrapper {
     float: left;
     width: 20%;
-    min-width: 15%;
 }
 
 .jv-content-wrapper {
-    width:80%;
-    min-width: 40%;
+    width: 79.5%;
     float: right;
+}
+
+.ui-widget-content {
+    border: 2px solid #dddddd;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333333;
+}
+
+.gallery-style {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%
 }
 
 #jv-footer-wrapper {

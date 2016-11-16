@@ -23,15 +23,9 @@
 
         <div id="jv-containerwrap">
 
-            <div class="jv-left-wrapper">
-                <p:dataList value="#{markBean.allMarks}" var="mark"
-                            style="width:100%; margin:10px 0px">
-                    <f:facet name="header">Marks</f:facet>
-                    <p:commandLink value="#{mark.mark}" action="#{carSearchBean.findCars}">
-                        <f:setPropertyActionListener value="#{mark.mark}" target="#{carSearchBean.mark}"/>
-                    </p:commandLink>
-                </p:dataList>
-            </div>
+            <ui:insert name="left-wrapper">
+                <ui:include src="../../modules/left-wrapper.xhtml"/>
+            </ui:insert>
 
             <div class="jv-content-wrapper">
                 <h:form>

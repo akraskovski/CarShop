@@ -18,55 +18,46 @@
     <div id="jv-wrapper">
 
         <ui:insert name="header">
-            <ui:include src="../../modules/admin/admin-header.xhtml" />
+            <ui:include src="../../modules/admin/admin-header.xhtml"/>
         </ui:insert>
 
         <div id="jv-containerwrap">
-            <div id="jv-container">
-                <div class="jv-left-wrapper">
-                    <div id="jv-left">
-                        <p:dataList value="#{markBean.allMarks}" var="mark" style="width:100%; margin:10px 0px">
-                            <f:facet name="header">Marks</f:facet>
-                            <p:commandLink value="#{mark.mark}" action="#{carSearchBean.findCarsAdmin}">
-                                <f:setPropertyActionListener value="#{mark.mark}" target="#{carSearchBean.mark}"/>
-                            </p:commandLink>
-                        </p:dataList>
-                    </div>
-                </div>
 
-                <div class="jv-content-wrapper">
+            <ui:insert name="left-wrapper">
+                <ui:include src="../../modules/admin/admin-left-wrapper.xhtml"/>
+            </ui:insert>
 
-                    <h:form>
-                        <p:dataGrid var="car" value="#{carSearchBean.findCarsByParams}" columns="2" layout="grid"
-                                    rows="12" paginator="true" id="cars"
-                        >
-                            <f:facet name="header">
-                                <h2>Find cars</h2>
-                            </f:facet>
-                            <p:panel header="#{car.markTable.mark} #{car.model}" style="text-align:center">
-                                <h:panelGrid columns="1" style="width:100%">
+            <div class="jv-content-wrapper">
+                <h:form>
+                    <p:dataGrid var="car" value="#{carSearchBean.findCarsByParams}" columns="2" layout="grid"
+                                rows="12" paginator="true" id="cars"
+                    >
+                        <f:facet name="header">
+                            <h2>Find cars</h2>
+                        </f:facet>
+                        <p:panel header="#{car.markTable.mark} #{car.model}" style="text-align:center">
+                            <h:panelGrid columns="1" style="width:100%">
 
-                                    <p:commandLink action="admin-car-info?faces-redirect=true">
-                                        <p:graphicImage library="images" name="#{carBean.getFirstPhoto(car)}"
-                                                        width="290px" height="220px"/>
-                                        <f:setPropertyActionListener value="#{car}" target="#{carBean.selectedCar}"/>
-                                    </p:commandLink>
-                                    <h:outputText value="#{car.year}"/>
-                                    <h:outputText value="#{car.information}"/>
-                                    <h:outputText value="$#{car.price}"/>
-                                    <p:commandLink value="more" action="admin-car-info?faces-redirect=true">
-                                        <f:setPropertyActionListener value="#{car}" target="#{carBean.selectedCar}"/>
-                                    </p:commandLink>
-                                </h:panelGrid>
-                            </p:panel>
-                        </p:dataGrid>
-                    </h:form>
-                </div>
+                                <p:commandLink action="admin-car-info?faces-redirect=true">
+                                    <p:graphicImage library="images" name="#{carBean.getFirstPhoto(car)}"
+                                                    width="290px" height="220px"/>
+                                    <f:setPropertyActionListener value="#{car}" target="#{carBean.selectedCar}"/>
+                                </p:commandLink>
+                                <h:outputText value="#{car.year}"/>
+                                <h:outputText value="#{car.information}"/>
+                                <h:outputText value="$#{car.price}"/>
+                                <p:commandLink value="more" action="admin-car-info?faces-redirect=true">
+                                    <f:setPropertyActionListener value="#{car}" target="#{carBean.selectedCar}"/>
+                                </p:commandLink>
+                            </h:panelGrid>
+                        </p:panel>
+                    </p:dataGrid>
+                </h:form>
             </div>
         </div>
 
         <ui:insert name="footer">
-            <ui:include src="../../modules/footer.xhtml" />
+            <ui:include src="../../modules/footer.xhtml"/>
         </ui:insert>
     </div>
 

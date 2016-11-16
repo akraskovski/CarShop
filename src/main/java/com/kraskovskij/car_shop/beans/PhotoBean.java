@@ -32,8 +32,8 @@ public class PhotoBean implements Serializable{
         streams = new ArrayList<>();
         photos = new ArrayList<>();
         background = new ArrayList<>();
-        for (int i = 1; i <= 6; i++)
-            background.add("background" + i + ".jpg");
+        for (int i = 1; i <= 4; i++)
+            background.add("images/background/background" + i + ".jpg");
     }
 
     public void uploadPhoto(FileUploadEvent e) throws IOException {

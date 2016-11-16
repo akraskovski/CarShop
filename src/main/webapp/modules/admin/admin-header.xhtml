@@ -10,9 +10,11 @@
 
     <div id="jv-main-header">
         <div id="jv-maintop">
-            <p:imageSwitch effect="fade" id="fadeEffect">
+            <p:imageSwitch effect="fade" id="fadeEffect" style="width: 100%">
                 <ui:repeat value="#{photoBean.background}" var="image" id="fadeEffectImages">
-                    <p:graphicImage library="images" name="#{image}" id="image" styleClass="backgroundImage"/>
+                    <p:link outcome="admin-index.xhtml">
+                        <p:graphicImage name="#{image}" styleClass="backgroundImage"/>
+                    </p:link>
                 </ui:repeat>
             </p:imageSwitch>
         </div>

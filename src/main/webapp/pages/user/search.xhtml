@@ -22,19 +22,13 @@
         </ui:insert>
 
         <div id="jv-containerwrap">
-            <div id="jv-container">
-                <div class="jv-left-wrapper">
-                    <div id="jv-left">
-                        <p:dataList value="#{markBean.allMarks}" var="mark" style="width:100%; margin:10px 0px">
-                            <f:facet name="header">Marks</f:facet>
-                            <p:commandLink value="#{mark.mark}" action="#{carSearchBean.findCars}">
-                                <f:setPropertyActionListener value="#{mark.mark}" target="#{carSearchBean.mark}"/>
-                            </p:commandLink>
-                        </p:dataList>
-                    </div>
-                </div>
 
-                <div class="jv-content-wrapper">
+            <ui:insert name="left-wrapper">
+                <ui:include src="../../modules/left-wrapper.xhtml"/>
+            </ui:insert>
+
+            <div class="jv-content-wrapper">
+                <p:panel header="Select search settings" style="margin-left:auto; margin-right:auto;">
                     <h:form>
                         <p:panelGrid columns="2">
                             <p:outputLabel for="marks" value="Select mark:"/>
@@ -55,7 +49,8 @@
                             <h:panelGrid columns="1" style="margin-bottom: 10px">
                                 <h:outputText id="yearRange"
                                               value="Between #{carSearchBean.stYear} and #{carSearchBean.endYear}"/>
-                                <p:slider for="startYear,endYear" display="yearRange" minValue="1960" maxValue="2016"
+                                <p:slider for="startYear,endYear" display="yearRange" minValue="1960"
+                                          maxValue="2016"
                                           style="width: 400px"
                                           range="true" displayTemplate="Between {min} and {max}"/>
                             </h:panelGrid>
@@ -86,17 +81,18 @@
                             <h:panelGrid columns="1" style="margin-bottom: 10px">
                                 <h:outputText id="priceRange"
                                               value="Between #{carSearchBean.stPrice} and #{carSearchBean.endPrice}"/>
-                                <p:slider for="startPrice,endPrice" display="priceRange" minValue="0" maxValue="100000"
+                                <p:slider for="startPrice,endPrice" display="priceRange" minValue="0"
+                                          maxValue="100000"
                                           style="width: 400px"
                                           range="true" displayTemplate="Between {min} and {max}" step="1000"/>
+                                <h:inputHidden id="startPrice" value="#{carSearchBean.stPrice}"/>
+                                <h:inputHidden id="endPrice" value="#{carSearchBean.endPrice}"/>
                             </h:panelGrid>
-                            <h:inputHidden id="startPrice" value="#{carSearchBean.stPrice}"/>
-                            <h:inputHidden id="endPrice" value="#{carSearchBean.endPrice}"/>
                         </p:panelGrid>
 
                         <p:commandButton value="Submit" action="#{carSearchBean.findCars}"/>
                     </h:form>
-                </div>
+                </p:panel>
             </div>
         </div>
 

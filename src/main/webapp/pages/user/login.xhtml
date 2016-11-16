@@ -22,20 +22,14 @@
         </ui:insert>
 
         <div id="jv-containerwrap">
-            <div id="jv-container">
-                <div class="jv-left-wrapper">
-                    <div id="jv-left">
-                        <p:dataList value="#{markBean.allMarks}" var="mark" style="width:100%; margin:10px 0px">
-                            <f:facet name="header">Marks</f:facet>
-                            <p:commandLink value="#{mark.mark}" action="#{carSearchBean.findCars}">
-                                <f:setPropertyActionListener value="#{mark.mark}" target="#{carSearchBean.mark}"/>
-                            </p:commandLink>
-                        </p:dataList>
-                    </div>
-                </div>
+
+            <ui:insert name="left-wrapper">
+                <ui:include src="../../modules/left-wrapper.xhtml"/>
+            </ui:insert>
 
                 <div class="jv-content-wrapper">
-                    <h:form id="loginForm" prependId="false">
+                    <p:panel header="Login page">
+                    <h:form id="loginForm" prependId="false" style="align-items: center">
                         <!-- Messages must be global here, to show bad credentials -->
                         <h:messages globalOnly="true"/>
 
@@ -56,8 +50,8 @@
                         <h:commandButton type="submit" id="login" value="Login"
                                          action="#{loginController.doLogin}"/>
                     </h:form>
+                    </p:panel>
                 </div>
-            </div>
         </div>
         <ui:insert name="footer">
             <ui:include src="../../modules/footer.xhtml"/>

@@ -18,75 +18,67 @@
     <div id="jv-wrapper">
 
         <ui:insert name="header">
-            <ui:include src="../../modules/admin/admin-header.xhtml" />
+            <ui:include src="../../modules/admin/admin-header.xhtml"/>
         </ui:insert>
 
-        <div id = "jv-containerwrap">
-            <div id="jv-container">
-                <div class="jv-left-wrapper">
-                    <div id="jv-left">
-                        <p:dataList value="#{markBean.allMarks}" var="mark" style="width:100%; margin:10px 0px">
-                            <f:facet name="header">Marks</f:facet>
-                            <p:commandLink value="#{mark.mark}" action="#{carSearchBean.findCarsAdmin}">
-                                <f:setPropertyActionListener value="#{mark.mark}" target="#{carSearchBean.mark}"/>
-                            </p:commandLink>
-                        </p:dataList>
-                    </div>
-                </div>
+        <div id="jv-containerwrap">
 
-                <div class="jv-content-wrapper">
-                    <p:outputPanel id="containmentPanel" layout="block" style="border:2px solid black;">
-                        <h:form style="text-align: center">
-                            <h2>#{carBean.selectedCar.markTable.mark} #{carBean.selectedCar.model}</h2>
-                            <p:galleria value="#{carBean.selectedCar.photos}" var="image" showCaption="true">
-                                <p:graphicImage library="images" name="#{image.path}" title="#{image.id}" width="100%" height="100%"/>
-                            </p:galleria>
+            <ui:insert name="left-wrapper">
+                <ui:include src="../../modules/admin/admin-left-wrapper.xhtml"/>
+            </ui:insert>
 
-                            <p:panel id="description" header="Description" style="margin:1">
-                                <h3>#{carBean.selectedCar.markTable.mark} #{carBean.selectedCar.model}      #{carBean.selectedCar.year}</h3>
-                                <p:panelGrid columns="2">
+            <div class="jv-content-wrapper">
+                <p:panel>
+                    <h2 style="text-align: center">#{carBean.selectedCar.markTable.mark} #{carBean.selectedCar.model}</h2>
+                    <p:panel>
+                        <p:galleria value="#{carBean.selectedCar.photos}" styleClass="gallery-style"
+                                    var="image" showCaption="false">
+                            <p:graphicImage library="images" name="#{image.path}" width="100%" height="100%"/>
+                        </p:galleria>
+                    </p:panel>
+                    <h:form>
+                        <p:panel id="description" header="Description" style="margin:1">
+                            <h3>#{carBean.selectedCar.markTable.mark} #{carBean.selectedCar.model}      #{carBean.selectedCar.year}</h3>
+                            <p:panelGrid columns="2">
 
-                                    <h:outputText value="Body type:" />
-                                    <h:outputText value="#{carBean.selectedCar.typeTable.type}" />
+                                <h:outputText value="Body type:"/>
+                                <h:outputText value="#{carBean.selectedCar.typeTable.type}"/>
 
-                                    <h:outputText value="Engine type:" />
-                                    <h:outputText value="#{carBean.selectedCar.engineTable.engineType.type}" />
+                                <h:outputText value="Engine type:"/>
+                                <h:outputText value="#{carBean.selectedCar.engineTable.engineType.type}"/>
 
-                                    <h:outputText value="Volume:" />
-                                    <h:outputText value="#{carBean.selectedCar.engineTable.volume}" />
+                                <h:outputText value="Volume:"/>
+                                <h:outputText value="#{carBean.selectedCar.engineTable.volume}"/>
 
-                                    <h:outputText value="Horse power:" />
-                                    <h:outputText value="#{carBean.selectedCar.engineTable.hp}" />
+                                <h:outputText value="Horse power:"/>
+                                <h:outputText value="#{carBean.selectedCar.engineTable.hp}"/>
 
-                                    <h:outputText value="Torque:" />
-                                    <h:outputText value="#{carBean.selectedCar.engineTable.nm}" />
+                                <h:outputText value="Torque:"/>
+                                <h:outputText value="#{carBean.selectedCar.engineTable.nm}"/>
 
-                                    <h:outputText value="Doors:" />
-                                    <h:outputText value="#{carBean.selectedCar.doors}" />
+                                <h:outputText value="Doors:"/>
+                                <h:outputText value="#{carBean.selectedCar.doors}"/>
 
-                                    <h:outputText value="Mileage:" />
-                                    <h:outputText value="#{carBean.selectedCar.mileage}" />
+                                <h:outputText value="Mileage:"/>
+                                <h:outputText value="#{carBean.selectedCar.mileage}"/>
 
-                                    <h:outputText value="Transmission:" />
-                                    <h:outputText value="#{carBean.selectedCar.engineTable.transmission.transmission}" />
-                                </p:panelGrid>
-                                <h:outputText value="#{carBean.selectedCar.information}"/>
-                                <h2>$#{carBean.selectedCar.price}</h2>
-                                <p:commandButton value="Delete" action="#{carBean.deleteCar}"/>
-                                <p:commandButton value="Edit" action="admin-edit-car?faces-redirect=true"/>
-                            </p:panel>
-                        </h:form>
-                    </p:outputPanel>
-                </div>
+                                <h:outputText value="Transmission:"/>
+                                <h:outputText value="#{carBean.selectedCar.engineTable.transmission.transmission}"/>
+                            </p:panelGrid>
+                            <h:outputText value="#{carBean.selectedCar.information}"/>
+                            <h2>$#{carBean.selectedCar.price}</h2>
+                            <p:commandButton value="Delete" action="#{carBean.deleteCar}"/>
+                            <p:commandButton value="Edit" action="admin-edit-car?faces-redirect=true"/>
+                        </p:panel>
+                    </h:form>
+                </p:panel>
             </div>
         </div>
 
         <ui:insert name="footer">
-            <ui:include src="../../modules/footer.xhtml" />
+            <ui:include src="../../modules/footer.xhtml"/>
         </ui:insert>
 
     </div>
-
 </h:body>
-
 </html>
