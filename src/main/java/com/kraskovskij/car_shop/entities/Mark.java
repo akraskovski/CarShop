@@ -4,12 +4,16 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "mark", schema = "avtokomis")
-public class Mark implements Serializable{
+@Table(name = "mark", schema = "carshop")
+public class Mark implements Serializable {
+
     private static final long serialVersionUID = -5170875020617735653L;
     private int id;
     private String mark;
     private String logoPath;
+
+    public Mark() {
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

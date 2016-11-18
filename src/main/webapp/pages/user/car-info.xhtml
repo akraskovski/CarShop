@@ -29,46 +29,115 @@
 
             <div class="jv-content-wrapper">
                 <p:panel>
+
                     <h2 style="text-align: center">#{carBean.selectedCar.markTable.mark} #{carBean.selectedCar.model}</h2>
-                    <p:panel >
+
+                    <p:panel>
                         <p:galleria value="#{carBean.selectedCar.photos}" styleClass="gallery-style"
                                     var="image" showCaption="false">
                             <p:graphicImage library="images" name="#{image.path}" width="100%" height="100%"/>
                         </p:galleria>
                     </p:panel>
-                    <h:form>
-                        <p:panel header="Description" style="margin:1">
-                            <h3>#{carBean.selectedCar.markTable.mark} #{carBean.selectedCar.model}      #{carBean.selectedCar.year}</h3>
-                            <p:panelGrid columns="2">
 
-                                <h:outputText value="Body type:"/>
-                                <h:outputText value="#{carBean.selectedCar.typeTable.type}"/>
+                    <p:panel>
+                        <div class="car-info-box">
+                            <div>
+                                <p:fieldset legend="Description" style="margin-bottom:20px;">
+                                    <h:panelGrid columns="2" cellpadding="5">
+                                        <h:outputText value="Name:"/>
+                                        <h:outputText
+                                                value="#{carBean.selectedCar.markTable.mark} #{carBean.selectedCar.model}"/>
+                                        <h:outputText value="Year:"/>
+                                        <h:outputText value="#{carBean.selectedCar.year}"/>
 
-                                <h:outputText value="Engine type:"/>
-                                <h:outputText value="#{carBean.selectedCar.engineTable.engineType.type}"/>
+                                        <h:outputText value="Mileage:"/>
+                                        <h:outputText value="#{carBean.selectedCar.mileage}"/>
 
-                                <h:outputText value="Volume:"/>
-                                <h:outputText value="#{carBean.selectedCar.engineTable.volume}"/>
+                                        <h:outputText value="Body type:"/>
+                                        <h:outputText value="#{carBean.selectedCar.typeTable.type}"/>
 
-                                <h:outputText value="Horse power:"/>
-                                <h:outputText value="#{carBean.selectedCar.engineTable.hp}"/>
+                                        <h:outputText value="Doors:"/>
+                                        <h:outputText value="#{carBean.selectedCar.doors}"/>
 
-                                <h:outputText value="Torque:"/>
-                                <h:outputText value="#{carBean.selectedCar.engineTable.nm}"/>
+                                        <h:outputText value="Transmission:"/>
+                                        <h:outputText
+                                                value="#{carBean.selectedCar.engineTable.transmission.transmission}"/>
 
-                                <h:outputText value="Doors:"/>
-                                <h:outputText value="#{carBean.selectedCar.doors}"/>
+                                        <h:outputText value="Gearbox:"/>
+                                        <h:outputText
+                                                value="#{carBean.selectedCar.gearbox.name}"/>
 
-                                <h:outputText value="Mileage:"/>
-                                <h:outputText value="#{carBean.selectedCar.mileage}"/>
+                                        <h:outputText value="Color:"/>
+                                        <h:outputText value="#{carBean.selectedCar.color}"/>
+                                    </h:panelGrid>
+                                </p:fieldset>
+                            </div>
 
-                                <h:outputText value="Transmission:"/>
-                                <h:outputText value="#{carBean.selectedCar.engineTable.transmission.transmission}"/>
-                            </p:panelGrid>
+                            <div>
+                                <p:fieldset legend="Engine" style="margin-bottom:20px;">
+                                    <h:panelGrid columns="2" cellpadding="5">
+
+                                        <h:outputText value="Engine type:"/>
+                                        <h:outputText value="#{carBean.selectedCar.engineTable.engineType.type}"/>
+
+                                        <h:outputText value="Volume:"/>
+                                        <h:outputText value="#{carBean.selectedCar.engineTable.volume}"/>
+
+                                        <h:outputText value="Horse power:"/>
+                                        <h:outputText value="#{carBean.selectedCar.engineTable.hp}"/>
+
+                                        <h:outputText value="Torque:"/>
+                                        <h:outputText value="#{carBean.selectedCar.engineTable.nm}"/>
+                                    </h:panelGrid>
+                                </p:fieldset>
+                            </div>
+
+                            <div>
+                                <p:fieldset legend="Options" style="margin-bottom:20px;">
+                                    <h:panelGrid columns="2" cellpadding="2">
+                                        <h:outputText value="Conditioner:"/>
+                                        <p:selectBooleanCheckbox value="#{carBean.selectedCar.options.conditioner}" disabled="true"/>
+
+                                        <h:outputText value="Leather:"/>
+                                        <p:selectBooleanCheckbox value="#{carBean.selectedCar.options.leather}" disabled="true"/>
+
+                                        <h:outputText value="Allo wheels:"/>
+                                        <p:selectBooleanCheckbox value="#{carBean.selectedCar.options.alloyWheels}" disabled="true"/>
+
+                                        <h:outputText value="Xenon:"/>
+                                        <p:selectBooleanCheckbox value="#{carBean.selectedCar.options.xenon}" disabled="true"/>
+
+                                        <h:outputText value="PDC:"/>
+                                        <p:selectBooleanCheckbox value="#{carBean.selectedCar.options.pdc}" disabled="true"/>
+
+                                        <h:outputText value="Ass heating:"/>
+                                        <p:selectBooleanCheckbox value="#{carBean.selectedCar.options.assHeating}" disabled="true"/>
+
+                                        <h:outputText value="ASC:"/>
+                                        <p:selectBooleanCheckbox value="#{carBean.selectedCar.options.asc}" disabled="true"/>
+
+                                        <h:outputText value="Navigation:"/>
+                                        <p:selectBooleanCheckbox value="#{carBean.selectedCar.options.navi}" disabled="true"/>
+
+                                        <h:outputText value="Speakerphone:"/>
+                                        <p:selectBooleanCheckbox value="#{carBean.selectedCar.options.speakerphone}" disabled="true"/>
+
+                                        <h:outputText value="Fog lights:"/>
+                                        <p:selectBooleanCheckbox value="#{carBean.selectedCar.options.fogLights}" disabled="true"/>
+
+                                        <h:outputText value="Signaling:"/>
+                                        <p:selectBooleanCheckbox value="#{carBean.selectedCar.options.signaling}" disabled="true"/>
+                                    </h:panelGrid>
+                                </p:fieldset>
+                            </div>
+                        </div>
+
+                        <p:panel header="Information">
                             <h:outputText value="#{carBean.selectedCar.information}"/>
-                            <h2>$#{carBean.selectedCar.price}</h2>
                         </p:panel>
-                    </h:form>
+
+                        <h1 align="center">$#{carBean.selectedCar.price}</h1>
+                    </p:panel>
                 </p:panel>
             </div>
         </div>

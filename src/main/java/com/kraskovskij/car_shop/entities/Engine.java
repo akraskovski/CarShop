@@ -4,14 +4,15 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "engine", schema = "avtokomis")
-public class Engine implements Serializable{
+@Table(name = "engine", schema = "carshop")
+public class Engine implements Serializable {
     private static final long serialVersionUID = -5170875020617735653L;
     private int id;
     private int volume;
     private Integer hp;
     private Integer nm;
 
+    //For ManyToOne relations
     private Transmission transmission;
     private EngineType engineType;
 
@@ -30,7 +31,7 @@ public class Engine implements Serializable{
     }
 
     @Basic
-    @Column(name = "volume", nullable = false)
+    @Column(name = "volume")
     public int getVolume() {
         return volume;
     }

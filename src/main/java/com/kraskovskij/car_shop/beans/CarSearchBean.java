@@ -24,8 +24,8 @@ public class CarSearchBean implements Serializable{
     private String engineType;
     private int stYear;
     private int endYear;
-    private double stPrice;
-    private double endPrice;
+    private int stPrice;
+    private int endPrice;
     private int stMileage;
     private int endMileage;
     private List<Car> findCarsByParams;
@@ -88,19 +88,19 @@ public class CarSearchBean implements Serializable{
         this.endYear = endYear;
     }
 
-    public double getStPrice() {
+    public int getStPrice() {
         return stPrice;
     }
 
-    public void setStPrice(double stPrice) {
+    public void setStPrice(int stPrice) {
         this.stPrice = stPrice;
     }
 
-    public double getEndPrice() {
+    public int getEndPrice() {
         return endPrice;
     }
 
-    public void setEndPrice(double endPrice) {
+    public void setEndPrice(int endPrice) {
         this.endPrice = endPrice;
     }
 

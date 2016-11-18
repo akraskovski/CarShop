@@ -21,8 +21,8 @@ public interface CarRepository extends JpaRepository<Car, Integer>{
                               @Param("engineType")String engineType,
                               @Param("stYear")Integer stYear,
                               @Param("endYear")Integer endYear,
-                              @Param("stPrice")Double stPrice,
-                              @Param("endPrice")Double endPrice,
+                              @Param("stPrice")Integer stPrice,
+                              @Param("endPrice")Integer endPrice,
                               @Param("stMileage")Integer stMileage,
                               @Param("endMileage")Integer endMileage);
 
@@ -37,5 +37,5 @@ public interface CarRepository extends JpaRepository<Car, Integer>{
                        @Param("doors")Integer doors,
                        @Param("year")Integer year,
                        @Param("info")String info,
-                       @Param("price")Double price);
+                       @Param("price")Integer price);
 }

@@ -127,6 +127,59 @@
                         </p:selectOneMenu>
                         <p:message for="transmission"/>
 
+                        <p:selectOneMenu id="gearbox" value="#{carModelBean.gearBoxId}" effect="fade"
+                                         required="true" label="Gearbox">
+                            <f:selectItem itemLabel="Select gearbox" itemValue=""/>
+                            <f:selectItems value="#{gearboxBean.allGearboxes}" var="gearbox"
+                                           itemLabel="#{gearbox.name}"
+                                           itemValue="#{gearbox.id}"/>
+                        </p:selectOneMenu>
+                        <p:message for="engineType"/>
+
+                        <h:outputLabel for="color" value="Enter Color:" style="font-weight:bold"/>
+                        <p:inputText id="color" value="#{carModelBean.color}" required="false" label="Color">
+                            <f:validateLength minimum="0" maximum="4"/>
+                            <p:clientValidator/>
+                        </p:inputText>
+                        <p:message for="hp"/>
+
+                        <p:fieldset legend="Options" style="margin-bottom:20px;">
+                            <h:panelGrid columns="2" cellpadding="2">
+                                <h:outputText value="Conditioner:"/>
+                                <p:selectBooleanCheckbox value="#{optionsBean.conditioner}"/>
+
+                                <h:outputText value="Leather:"/>
+                                <p:selectBooleanCheckbox value="#{optionsBean.leather}"/>
+
+                                <h:outputText value="Allo wheels:"/>
+                                <p:selectBooleanCheckbox value="#{optionsBean.alloyWheels}"/>
+
+                                <h:outputText value="Xenon:"/>
+                                <p:selectBooleanCheckbox value="#{optionsBean.xenon}"/>
+
+                                <h:outputText value="PDC:"/>
+                                <p:selectBooleanCheckbox value="#{optionsBean.pdc}"/>
+
+                                <h:outputText value="Ass heating:"/>
+                                <p:selectBooleanCheckbox value="#{optionsBean.assHeating}"/>
+
+                                <h:outputText value="ASC:"/>
+                                <p:selectBooleanCheckbox value="#{optionsBean.asc}"/>
+
+                                <h:outputText value="Navigation:"/>
+                                <p:selectBooleanCheckbox value="#{optionsBean.navi}"/>
+
+                                <h:outputText value="Speakerphone:"/>
+                                <p:selectBooleanCheckbox value="#{optionsBean.speakerphone}"/>
+
+                                <h:outputText value="Fog lights:"/>
+                                <p:selectBooleanCheckbox value="#{optionsBean.fogLights}"/>
+
+                                <h:outputText value="Signaling:"/>
+                                <p:selectBooleanCheckbox value="#{optionsBean.signaling}"/>
+                            </h:panelGrid>
+                        </p:fieldset>
+
                         <h3>Some information about car</h3>
                         <p:inputTextarea
                                 id="info"

@@ -4,11 +4,15 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "transmission", schema = "avtokomis")
-public class Transmission implements Serializable{
+@Table(name = "transmission", schema = "carshop")
+public class Transmission implements Serializable {
+
     private static final long serialVersionUID = -5170875020617735653L;
     private int id;
     private String transmission;
+
+    public Transmission() {
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

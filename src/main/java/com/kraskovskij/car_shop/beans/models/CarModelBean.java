@@ -15,22 +15,26 @@ public class CarModelBean implements Serializable {
     private Integer markId;
     private String model;
     private Integer typeId;
+    private Integer gearBoxId;
     private int year;
     private String info;
-    private double price;
+    private int price;
     private int doors;
     private int mileage;
+    private String color;
 
     @PostConstruct
     public void init(){
         markId = null;
         model = "";
         typeId = null;
+        gearBoxId = null;
         year = 0;
         info = "";
-        price = 0.0;
+        price = 0;
         doors = 0;
         mileage = 0;
+        color = "";
     }
 
     public Integer getMarkId() {
@@ -57,6 +61,14 @@ public class CarModelBean implements Serializable {
         this.model = model;
     }
 
+    public Integer getGearBoxId() {
+        return gearBoxId;
+    }
+
+    public void setGearBoxId(Integer gearBoxId) {
+        this.gearBoxId = gearBoxId;
+    }
+
     public int getYear() {
         return year;
     }
@@ -73,11 +85,11 @@ public class CarModelBean implements Serializable {
         this.info = info;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
@@ -95,5 +107,13 @@ public class CarModelBean implements Serializable {
 
     public void setMileage(int mileage) {
         this.mileage = mileage;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }

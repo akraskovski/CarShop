@@ -53,9 +53,9 @@
                                           maxValue="2016"
                                           style="width: 400px"
                                           range="true" displayTemplate="Between {min} and {max}"/>
+                                <h:inputHidden id="startYear" value="#{carSearchBean.stYear}"/>
+                                <h:inputHidden id="endYear" value="#{carSearchBean.endYear}"/>
                             </h:panelGrid>
-                            <h:inputHidden id="startYear" value="#{carSearchBean.stYear}"/>
-                            <h:inputHidden id="endYear" value="#{carSearchBean.endYear}"/>
 
                             <p:outputLabel for="mileageRange" value="Mileage:"/>
                             <h:panelGrid columns="1" style="margin-bottom: 10px">
@@ -65,9 +65,9 @@
                                           maxValue="500000"
                                           style="width: 400px" step="10000"
                                           range="true" displayTemplate="Between {min} and {max}"/>
+                                <h:inputHidden id="startMileage" value="#{carSearchBean.stMileage}"/>
+                                <h:inputHidden id="endMileage" value="#{carSearchBean.endMileage}"/>
                             </h:panelGrid>
-                            <h:inputHidden id="startMileage" value="#{carSearchBean.stMileage}"/>
-                            <h:inputHidden id="endMileage" value="#{carSearchBean.endMileage}"/>
 
                             <p:outputLabel for="engine" value="Select engine type:"/>
                             <p:selectOneMenu id="engine" value="#{carSearchBean.engineType}" effect="fade">

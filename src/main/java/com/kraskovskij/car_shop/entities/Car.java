@@ -6,22 +6,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "car", schema = "avtokomis")
-public class Car implements Serializable{
+@Table(name = "car", schema = "carshop")
+public class Car implements Serializable {
 
     private static final long serialVersionUID = -5170875020617735653L;
     private int id;
-    private double price;
+    private int price;
     private int year;
     private String information;
     private String model;
     private int doors;
     private int mileage;
+    private String color;
 
     //For ManyToOne relations
     private Mark markTable;
     private Type typeTable;
     private Engine engineTable;
+    private Gearbox gearbox;
+    private Options options;
+
+    public Car() {
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,11 +42,11 @@ public class Car implements Serializable{
 
     @Basic
     @Column(name = "price", nullable = false)
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
@@ -94,6 +100,16 @@ public class Car implements Serializable{
         this.mileage = mileage;
     }
 
+    @Basic
+    @Column(name = "color")
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "mark_id", nullable = false)
     public Mark getMarkTable() {
@@ -122,6 +138,26 @@ public class Car implements Serializable{
 
     public void setEngineTable(Engine engineTable) {
         this.engineTable = engineTable;
+    }
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "gearbox_id", nullable = false)
+    public Gearbox getGearbox() {
+        return gearbox;
+    }
+
+    public void setGearbox(Gearbox gearbox) {
+        this.gearbox = gearbox;
+    }
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "options_id", nullable = false)
+    public Options getOptions() {
+        return options;
+    }
+
+    public void setOptions(Options options) {
+        this.options = options;
     }
 
     //OneToMany Example
