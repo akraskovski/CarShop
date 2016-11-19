@@ -18,7 +18,7 @@ public class OptionsBean implements Serializable {
     private Boolean xenon;
     private Boolean pdc;
     private Boolean assHeating;
-    private Boolean asc;
+    private Boolean ascSystem;
     private Boolean navi;
     private Boolean speakerphone;
     private Boolean fogLights;
@@ -32,7 +32,7 @@ public class OptionsBean implements Serializable {
         xenon = false;
         pdc = false;
         assHeating = false;
-        asc = false;
+        ascSystem = false;
         navi = false;
         speakerphone = false;
         fogLights = false;
@@ -87,12 +87,12 @@ public class OptionsBean implements Serializable {
         this.assHeating = assHeating;
     }
 
-    public Boolean getAsc() {
-        return asc;
+    public Boolean getAscSystem() {
+        return ascSystem;
     }
 
-    public void setAsc(Boolean asc) {
-        this.asc = asc;
+    public void setAscSystem(Boolean ascSystem) {
+        this.ascSystem = ascSystem;
     }
 
     public Boolean getNavi() {

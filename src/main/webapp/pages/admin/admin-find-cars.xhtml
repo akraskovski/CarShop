@@ -5,8 +5,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+      xmlns:p="http://primefaces.org/ui">
 
 <h:head>
     <title>Car's sale</title>
@@ -29,7 +28,7 @@
 
             <div class="jv-content-wrapper">
                 <h:form>
-                    <p:dataGrid var="car" value="#{carSearchBean.findCarsByParams}" columns="2" layout="grid"
+                    <p:dataGrid var="car" value="#{carSearchBean.findCarsByParams}" columns="3" layout="grid"
                                 rows="12" paginator="true" id="cars"
                     >
                         <f:facet name="header">
@@ -43,12 +42,24 @@
                                                     width="290px" height="220px"/>
                                     <f:setPropertyActionListener value="#{car}" target="#{carBean.selectedCar}"/>
                                 </p:commandLink>
-                                <h:outputText value="#{car.year}"/>
-                                <h:outputText value="#{car.information}"/>
-                                <h:outputText value="$#{car.price}"/>
-                                <p:commandLink value="more" action="admin-car-info?faces-redirect=true">
-                                    <f:setPropertyActionListener value="#{car}" target="#{carBean.selectedCar}"/>
-                                </p:commandLink>
+                                <h:outputLabel style="font-weight: bold" value="#{car.markTable.mark} #{car.model}"/>
+                                <h:outputText style="font-weight: bold" value="$#{car.price}"/>
+                                <hr/>
+                                <h:outputText value="#{car.gearbox.name}, #{car.engineTable.engineType.type}, #{car.engineTable.volume}, #{car.typeTable.type}, #{car.color}"/>
+                                <hr/>
+                                <h:outputText value="Information: #{car.information}"/>
+                                <hr/>
+                                <h:panelGrid columns="3" style="margin-left: auto; margin-right: auto; padding: 0 0 5px 5px; ">
+                                    <p:commandLink value="More" action="admin-car-info?faces-redirect=true">
+                                        <f:setPropertyActionListener value="#{car}" target="#{carBean.selectedCar}"/>
+                                    </p:commandLink>
+                                    <p:commandLink value="Edit" action="admin-edit-car?faces-redirect=true">
+                                        <f:setPropertyActionListener value="#{car}" target="#{carBean.selectedCar}"/>
+                                    </p:commandLink>
+                                    <p:commandLink value="Delete" action="#{carBean.deleteCar}">
+                                        <f:setPropertyActionListener value="#{car}" target="#{carBean.selectedCar}"/>
+                                    </p:commandLink>
+                                </h:panelGrid>
                             </h:panelGrid>
                         </p:panel>
                     </p:dataGrid>

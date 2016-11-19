@@ -60,7 +60,7 @@
                             <p:outputLabel for="mileageRange" value="Mileage:"/>
                             <h:panelGrid columns="1" style="margin-bottom: 10px">
                                 <h:outputText id="mileageRange"
-                                              value="Between #{carSearchBean.stMileage} and #{carSearchBean.endMileage}"/>
+                                              value="Between #{carSearchBean.stMileage}km and #{carSearchBean.endMileage}km"/>
                                 <p:slider for="startMileage,endMileage" display="mileageRange" minValue="0"
                                           maxValue="500000"
                                           style="width: 400px" step="10000"
@@ -80,7 +80,7 @@
                             <p:outputLabel for="priceRange" value="Price:"/>
                             <h:panelGrid columns="1" style="margin-bottom: 10px">
                                 <h:outputText id="priceRange"
-                                              value="Between #{carSearchBean.stPrice} and #{carSearchBean.endPrice}"/>
+                                              value="Between $#{carSearchBean.stPrice} and $#{carSearchBean.endPrice}"/>
                                 <p:slider for="startPrice,endPrice" display="priceRange" minValue="0"
                                           maxValue="100000"
                                           style="width: 400px"

@@ -26,8 +26,8 @@ public class OptionsServiceImpl implements OptionsService {
     @Override
     public void updateOptions(Options options) {
         optionsRepository.updateOptionsById(options.getId(), options.getConditioner(), options.getLeather(), options.getAlloyWheels(),
-                options.getXenon(), options.getPdc()/*, options.getAssHeating(), options.getAsc(), options.getNavi(),
-                options.getSpeakerphone(), options.getFogLights(), options.getSignaling()*/);
+                options.getXenon(), options.getPdc(), options.getAssHeating(), options.getAscSystem(), options.getNavi(),
+                options.getSpeakerphone(), options.getFogLights(), options.getSignaling());
     }
 
     @Override

@@ -48,9 +48,9 @@ public class PhotoBean implements Serializable{
         if (streams.size() > 0) {
             for (InputStream input : streams) {
                 Photo photo = new Photo();
-                File f = null;
+                File f;
                 try {
-                    f = File.createTempFile("car", ".jpg", new File("E:\\CarShop\\src\\main\\webapp\\resources\\images\\"));
+                    f = File.createTempFile("car", ".jpg", new File("D:\\CarShop\\src\\main\\webapp\\resources\\images\\"));
                     Files.copy(input, f.toPath(), StandardCopyOption.REPLACE_EXISTING);
                     photo.setPath(f.getName());
                     photos.add(photo);

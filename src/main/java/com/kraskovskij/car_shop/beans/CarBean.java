@@ -72,6 +72,7 @@ public class CarBean implements Serializable {
         }
         carService.deleteCar(selectedCar);
         engineService.deleteEngine(selectedCar.getEngineTable());
+        optionsService.deleteOptions(selectedCar.getOptions());
 
         allCars.remove(selectedCar);
         selectedCar = null;

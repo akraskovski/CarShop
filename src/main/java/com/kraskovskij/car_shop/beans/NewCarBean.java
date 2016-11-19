@@ -94,7 +94,7 @@ public class NewCarBean implements Serializable{
         options.setXenon(optionsBean.getXenon());
         options.setPdc(optionsBean.getPdc());
         options.setAssHeating(optionsBean.getAssHeating());
-        options.setAsc(optionsBean.getAsc());
+        options.setAscSystem(optionsBean.getAscSystem());
         options.setNavi(optionsBean.getNavi());
         options.setSpeakerphone(optionsBean.getSpeakerphone());
         options.setFogLights(optionsBean.getFogLights());

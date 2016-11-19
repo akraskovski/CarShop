@@ -15,7 +15,7 @@ public class Options implements Serializable {
     private Boolean xenon;
     private Boolean pdc;
     private Boolean assHeating;
-    private Boolean asc;
+    private Boolean ascSystem;
     private Boolean navi;
     private Boolean speakerphone;
     private Boolean fogLights;
@@ -96,13 +96,13 @@ public class Options implements Serializable {
     }
 
     @Basic
-    @Column(name = "asc", columnDefinition = "TINYINT(1)")
-    public Boolean getAsc() {
-        return asc;
+    @Column(name = "asc_system", columnDefinition = "TINYINT(1)")
+    public Boolean getAscSystem() {
+        return ascSystem;
     }
 
-    public void setAsc(Boolean asc) {
-        this.asc = asc;
+    public void setAscSystem(Boolean ascSystem) {
+        this.ascSystem = ascSystem;
     }
 
     @Basic

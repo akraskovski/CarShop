@@ -28,38 +28,39 @@
             </ui:insert>
 
             <div class="jv-content-wrapper">
-                <h:form>
-                    <p:carousel value="#{carBean.allCars}" headerText="Random cars" var="car"
-                                itemStyle="text-align:center" responsive="true">
-                        <p:panelGrid columns="1"
-                                     style="width:100%; min-height: 400px; margin:10px 0px"
-                                     columnClasses="label,value"
-                                     layout="grid" styleClass="ui-panelgrid-blank">
-                            <f:facet name="header">
-                                <p:commandLink action="car-info?faces-redirect=true">
-                                    <p:graphicImage library="images" name="#{carBean.getFirstPhoto(car)}"
-                                                    width="100%"
-                                                    height="100%"/>
-                                    <f:setPropertyActionListener value="#{car}"
-                                                                 target="#{carBean.selectedCar}"/>
-                                </p:commandLink>
-                            </f:facet>
-
-                            <h:outputLabel style="font-weight: bold" value="#{car.markTable.mark} #{car.model}"/>
-                            <h:outputText value="$#{car.price}"/>
-                            <h:outputText value="#{car.gearbox.name}, #{car.engineTable.engineType.type}, #{car.engineTable.volume}, #{car.typeTable.type}, #{car.color}"/>
-                            <h:outputText value="Info: #{car.information}"/>
-                            <p:commandLink value="More" action="car-info?faces-redirect=true">
+                <p:carousel value="#{carBean.allCars}" headerText="Random cars" var="car"
+                            itemStyle="text-align:center" responsive="true">
+                    <p:panelGrid columns="1"
+                                 style="width:100%; min-height: 390px; margin: 10px 0;"
+                                 columnClasses="label,value"
+                                 layout="grid" styleClass="ui-panelgrid-blank">
+                        <f:facet name="header">
+                            <p:commandLink action="car-info?faces-redirect=true">
+                                <p:graphicImage library="images" name="#{carBean.getFirstPhoto(car)}"
+                                                width="100%"
+                                                height="100%"/>
                                 <f:setPropertyActionListener value="#{car}"
                                                              target="#{carBean.selectedCar}"/>
                             </p:commandLink>
-                        </p:panelGrid>
-
-                        <f:facet name="footer">
-                            In total there are #{fn:length(carBean.allCars)} cars in sale.
                         </f:facet>
-                    </p:carousel>
-                </h:form>
+
+                        <h:outputLabel style="font-weight: bold" value="#{car.markTable.mark} #{car.model}"/>
+                        <h:outputText style="font-weight: bold" value="$#{car.price}"/>
+                        <hr/>
+                        <h:outputText
+                                value="#{car.gearbox.name}, #{car.engineTable.engineType.type}, #{car.engineTable.volume}, #{car.typeTable.type}, #{car.color}"/>
+                        <hr/>
+                        <h:outputText value="Information: #{car.information}"/>
+                        <hr/>
+                        <p:commandLink value="More" action="car-info?faces-redirect=true">
+                            <f:setPropertyActionListener value="#{car}" target="#{carBean.selectedCar}"/>
+                        </p:commandLink>
+                    </p:panelGrid>
+
+                    <f:facet name="footer">
+                        In total there are #{fn:length(carBean.allCars)} cars in sale.
+                    </f:facet>
+                </p:carousel>
             </div>
 
         </div>
