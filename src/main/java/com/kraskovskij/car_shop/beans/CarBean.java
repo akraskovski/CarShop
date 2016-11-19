@@ -5,6 +5,7 @@ import com.kraskovskij.car_shop.entities.Car;
 import com.kraskovskij.car_shop.entities.Photo;
 import com.kraskovskij.car_shop.service.interfaces.CarService;
 import com.kraskovskij.car_shop.service.interfaces.EngineService;
+import com.kraskovskij.car_shop.service.interfaces.OptionsService;
 import com.kraskovskij.car_shop.service.interfaces.PhotoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -26,6 +27,9 @@ public class CarBean implements Serializable {
 
     @Autowired
     EngineService engineService;
+
+    @Autowired
+    OptionsService optionsService;
 
     @Autowired
     PhotoService photoService;
@@ -76,6 +80,7 @@ public class CarBean implements Serializable {
 
     public String updateCar() {
         engineService.updateEngine(selectedCar.getEngineTable());
+        optionsService.updateOptions(selectedCar.getOptions());
         carService.updateCar(selectedCar);
         return "admin-index";
     }

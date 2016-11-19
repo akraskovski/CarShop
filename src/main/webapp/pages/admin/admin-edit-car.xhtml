@@ -114,6 +114,43 @@
                         </p:selectOneMenu>
                         <p:message for="transmission"/>
 
+                        <p:fieldset legend="Options" style="margin-bottom:20px;">
+                            <h:panelGrid columns="2" cellpadding="2">
+                                <h:outputText value="Conditioner:"/>
+                                <p:selectBooleanCheckbox value="#{carBean.selectedCar.options.conditioner}"/>
+
+                                <h:outputText value="Leather:"/>
+                                <p:selectBooleanCheckbox value="#{carBean.selectedCar.options.leather}"/>
+
+                                <h:outputText value="Allo wheels:"/>
+                                <p:selectBooleanCheckbox value="#{carBean.selectedCar.options.alloyWheels}"/>
+
+                                <h:outputText value="Xenon:"/>
+                                <p:selectBooleanCheckbox value="#{carBean.selectedCar.options.xenon}"/>
+
+                                <h:outputText value="PDC:"/>
+                                <p:selectBooleanCheckbox value="#{carBean.selectedCar.options.pdc}"/>
+
+                                <h:outputText value="Ass heating:"/>
+                                <p:selectBooleanCheckbox value="#{carBean.selectedCar.options.assHeating}"/>
+
+                                <h:outputText value="ASC:"/>
+                                <p:selectBooleanCheckbox value="#{carBean.selectedCar.options.asc}"/>
+
+                                <h:outputText value="Navigation:"/>
+                                <p:selectBooleanCheckbox value="#{carBean.selectedCar.options.navi}"/>
+
+                                <h:outputText value="Speakerphone:"/>
+                                <p:selectBooleanCheckbox value="#{carBean.selectedCar.options.speakerphone}"/>
+
+                                <h:outputText value="Fog lights:"/>
+                                <p:selectBooleanCheckbox value="#{carBean.selectedCar.options.fogLights}"/>
+
+                                <h:outputText value="Signaling:"/>
+                                <p:selectBooleanCheckbox value="#{carBean.selectedCar.options.signaling}"/>
+                            </h:panelGrid>
+                        </p:fieldset>
+
                         <h3>Some information about car</h3>
                         <p:inputTextarea
                                 id="info"

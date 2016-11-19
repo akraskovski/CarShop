@@ -65,7 +65,7 @@ public class NewCarBean implements Serializable{
     @Autowired
     PhotoBean photoBean;
 
-    public String saveCar(){
+    public String saveCar() {
         Car car = new Car();
         car.setMarkTable(markService.getMarkById(carModelBean.getMarkId()));
         car.setModel(carModelBean.getModel());
@@ -88,17 +88,17 @@ public class NewCarBean implements Serializable{
         car.setEngineTable(engine);
 
         Options options = new Options();
-        options.setConditioner( (byte) (optionsBean.getConditioner() ? 1 : 0));
-        options.setLeather( (byte) (optionsBean.getLeather() ? 1:0));
-        options.setAlloyWheels( (byte) (optionsBean.getAlloyWheels() ? 1:0));
-        options.setXenon( (byte) (optionsBean.getXenon() ? 1:0));
-        options.setPdc( (byte) (optionsBean.getPdc() ? 1:0));
-        options.setAssHeating((byte) (optionsBean.getAssHeating() ? 1:0));
-        options.setAsc( (byte) (optionsBean.getAsc() ? 1:0));
-        options.setNavi( (byte) (optionsBean.getNavi() ? 1:0));
-        options.setSpeakerphone((byte) (optionsBean.getSpeakerphone() ? 1:0));
-        options.setFogLights( (byte) (optionsBean.getFogLights() ? 1:0));
-        options.setSignaling( (byte) (optionsBean.getSignaling() ? 1:0));
+        options.setConditioner(optionsBean.getConditioner());
+        options.setLeather(optionsBean.getLeather());
+        options.setAlloyWheels(optionsBean.getAlloyWheels());
+        options.setXenon(optionsBean.getXenon());
+        options.setPdc(optionsBean.getPdc());
+        options.setAssHeating(optionsBean.getAssHeating());
+        options.setAsc(optionsBean.getAsc());
+        options.setNavi(optionsBean.getNavi());
+        options.setSpeakerphone(optionsBean.getSpeakerphone());
+        options.setFogLights(optionsBean.getFogLights());
+        options.setSignaling(optionsBean.getSignaling());
         optionsService.saveOptions(options);
         car.setOptions(options);
 

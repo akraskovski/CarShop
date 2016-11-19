@@ -22,4 +22,17 @@ public class OptionsServiceImpl implements OptionsService {
     public void saveOptions(Options options) {
         optionsRepository.save(options);
     }
+
+    @Override
+    public void updateOptions(Options options) {
+        optionsRepository.updateOptionsById(options.getId(), options.getConditioner(), options.getLeather(), options.getAlloyWheels(),
+                options.getXenon(), options.getPdc()/*, options.getAssHeating(), options.getAsc(), options.getNavi(),
+                options.getSpeakerphone(), options.getFogLights(), options.getSignaling()*/);
+    }
+
+    @Override
+    public void deleteOptions(Options options) {
+        optionsRepository.delete(options);
+    }
 }
+
