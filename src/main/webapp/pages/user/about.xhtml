@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+
+<h:head>
+    <title>Car's sale Home page</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+
+<h:body>
+
+    <div id="jv-wrapper">
+
+        <ui:insert name="header">
+            <ui:include src="../../modules/header.xhtml"/>
+        </ui:insert>
+
+        <div id="jv-containerwrap">
+
+            <ui:insert name="left-wrapper">
+                <ui:include src="../../modules/left-wrapper.xhtml"/>
+            </ui:insert>
+
+            <div class="jv-content-wrapper">
+                <p:panel header="Contact information">
+                    <p><b>Прием авто на комиссию.</b>
+                        <br/>
+                        Продажа юридическим лицам и организациям.
+                        <br/>
+                        Наличный и безналичный расчет.
+                        <br/>
+                        Оформление счет-справок.
+                        <br/>
+                        Cтрахование автотранспорта(зеленая карта, автокаско).
+                        <br/>
+                    </p>
+
+                    <div style="text-align: center">
+                        Наш адрес:
+                        г.Гродно, пр-т Румлевский, 10/2
+                        <br/>
+                        Время работы:
+                        <br/>
+                        09.00 - 18.00 - пн. - пт.
+                        <br/>
+                        09.00 - 15.00 - сб. - вс.
+                        <br/>
+                        Тел:
+                        <br/>
+                        +375 29 882 9999
+                        <br/>
+                        +375 29 883 9999
+                        <br/>
+
+                        <b>Email:</b> <i>aktumauto@mail.ru</i>
+                        <br/>
+                        <b>Skype:</b> <i>AKTUMAUTO</i>
+                    </div>
+                </p:panel>
+            </div>
+
+        </div>
+
+        <ui:insert name="footer">
+            <ui:include src="../../modules/footer.xhtml"/>
+        </ui:insert>
+
+    </div>
+
+</h:body>
+</html>
