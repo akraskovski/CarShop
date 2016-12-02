@@ -11,6 +11,8 @@
 <h:head>
     <title>Car's sale Home page</title>
     <h:outputStylesheet library="css" name="style.css"/>
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyDDiWzEITfRugilGu_P3pw8MqT0evWmkOo"
+            type="text/javascript"/>
 </h:head>
 
 <h:body>
@@ -28,43 +30,57 @@
             </ui:insert>
 
             <div class="jv-content-wrapper">
-                <p:panel header="Contact information">
-                    <p><b>Прием авто на комиссию.</b>
+                <p:panel header="Contacts">
+                    <div align="center">
+                        <font face="Arial" size="20">Admission cars on commission.</font>
                         <br/>
-                        Продажа юридическим лицам и организациям.
+                        Sales on credit.
                         <br/>
-                        Наличный и безналичный расчет.
+                        Sale of legal entities and organizations.
                         <br/>
-                        Оформление счет-справок.
+                        Cash and cashless payment
                         <br/>
-                        Cтрахование автотранспорта(зеленая карта, автокаско).
-                        <br/>
-                    </p>
-
-                    <div style="text-align: center">
-                        Наш адрес:
-                        г.Гродно, пр-т Румлевский, 10/2
-                        <br/>
-                        Время работы:
-                        <br/>
-                        09.00 - 18.00 - пн. - пт.
-                        <br/>
-                        09.00 - 15.00 - сб. - вс.
-                        <br/>
-                        Тел:
-                        <br/>
-                        +375 29 882 9999
-                        <br/>
-                        +375 29 883 9999
-                        <br/>
-
-                        <b>Email:</b> <i>aktumauto@mail.ru</i>
-                        <br/>
-                        <b>Skype:</b> <i>AKTUMAUTO</i>
+                        <h:outputLink
+                                value="http://www.belrosstrakh.by/">Insurance of vehicles all types</h:outputLink>
                     </div>
+                    <div align="left">
+                        <p><b>Full customer support:</b>
+                            <br/>
+                            -<i>Purchase</i>
+                            <br/>
+                            -<i>Services</i>
+                            <br/>
+                            -<i>Selling</i>
+                        </p>
+                    </div>
+                    <div align="left">
+                        <p><b>Address</b>
+                            <br/>
+                            Grodno, Ozheshko st, 22
+                            <br/>
+                            <b>Work time:</b>
+                            <br/>
+                            09.00 - 18.00 - monday. - friday.
+                            <br/>
+                            09.00 - 15.00 - saturday. - sunday.
+                            <br/>
+                            <b>Phones:</b>
+                            <br/>
+                            +375 29 881 5024
+                            <br/>
+                            +375 29 937 7843
+                            <br/>
+                            <br/>
+                            <b>Email:</b> kraskovskij_ad_14@student.grsu.by
+                            <br/>
+                            <b>Skype:</b> temakras
+                        </p>
+                    </div>
+                    <p:gmap id="gmap" center="53.6848421, 23.8396057" zoom="17" type="terrain"
+                            model="#{carBean.simpleModel}"
+                            style="width:100%;height:700px"/>
                 </p:panel>
             </div>
-
         </div>
 
         <ui:insert name="footer">

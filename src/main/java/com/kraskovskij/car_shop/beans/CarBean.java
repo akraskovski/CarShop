@@ -7,6 +7,10 @@ import com.kraskovskij.car_shop.service.interfaces.CarService;
 import com.kraskovskij.car_shop.service.interfaces.EngineService;
 import com.kraskovskij.car_shop.service.interfaces.OptionsService;
 import com.kraskovskij.car_shop.service.interfaces.PhotoService;
+import org.primefaces.model.map.DefaultMapModel;
+import org.primefaces.model.map.LatLng;
+import org.primefaces.model.map.MapModel;
+import org.primefaces.model.map.Marker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -36,10 +40,14 @@ public class CarBean implements Serializable {
 
     private List<Car> allCars;
     private Car selectedCar;
+    private MapModel simpleModel;
 
     @PostConstruct
     public void init() {
         allCars = carService.getAllCars();
+        simpleModel = new DefaultMapModel();
+        LatLng coord = new LatLng(53.68479341, 23.83977795);
+        simpleModel.addOverlay(new Marker(coord, "Address"));
     }
 
     //Getters and Setters
@@ -53,6 +61,10 @@ public class CarBean implements Serializable {
 
     public void setSelectedCar(Car selectedCar) {
         this.selectedCar = selectedCar;
+    }
+
+    public MapModel getSimpleModel() {
+        return simpleModel;
     }
 
     public String getFirstPhoto(Car car) {
@@ -76,7 +88,7 @@ public class CarBean implements Serializable {
 
         allCars.remove(selectedCar);
         selectedCar = null;
-        return "admin-index";
+        return "admin-index?faces-redirect=true";
     }
 
     public String updateCar() {
