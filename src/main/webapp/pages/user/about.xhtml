@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+
+<h:head>
+    <title>Car's sale Home page</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyDDiWzEITfRugilGu_P3pw8MqT0evWmkOo"
+            type="text/javascript"/>
+</h:head>
+
+<h:body>
+
+    <div id="jv-wrapper">
+
+        <ui:insert name="header">
+            <ui:include src="../../modules/header.xhtml"/>
+        </ui:insert>
+
+        <div id="jv-containerwrap">
+
+            <ui:insert name="left-wrapper">
+                <ui:include src="../../modules/left-wrapper.xhtml"/>
+            </ui:insert>
+
+            <div class="jv-content-wrapper">
+                <p:panel header="Contacts">
+                    <div align="center">
+                        <font face="Arial" size="20">Admission cars on commission.</font>
+                        <br/>
+                        Sales on credit.
+                        <br/>
+                        Sale of legal entities and organizations.
+                        <br/>
+                        Cash and cashless payment
+                        <br/>
+                        <h:outputLink
+                                value="http://www.belrosstrakh.by/">Insurance of vehicles all types</h:outputLink>
+                    </div>
+                    <div align="left">
+                        <p><b>Full customer support:</b>
+                            <br/>
+                            -<i>Purchase</i>
+                            <br/>
+                            -<i>Services</i>
+                            <br/>
+                            -<i>Selling</i>
+                        </p>
+                    </div>
+                    <div align="left">
+                        <p><b>Address</b>
+                            <br/>
+                            Grodno, Ozheshko st, 22
+                            <br/>
+                            <b>Work time:</b>
+                            <br/>
+                            09.00 - 18.00 - monday. - friday.
+                            <br/>
+                            09.00 - 15.00 - saturday. - sunday.
+                            <br/>
+                            <b>Phones:</b>
+                            <br/>
+                            +375 29 881 5024
+                            <br/>
+                            +375 29 937 7843
+                            <br/>
+                            <br/>
+                            <b>Email:</b> kraskovskij_ad_14@student.grsu.by
+                            <br/>
+                            <b>Skype:</b> temakras
+                        </p>
+                    </div>
+                    <p:gmap id="gmap" center="53.6848421, 23.8396057" zoom="17" type="terrain"
+                            model="#{carBean.simpleModel}"
+                            style="width:100%;height:700px"/>
+                </p:panel>
+            </div>
+        </div>
+
+        <ui:insert name="footer">
+            <ui:include src="../../modules/footer.xhtml"/>
+        </ui:insert>
+
+    </div>
+
+</h:body>
+</html>
