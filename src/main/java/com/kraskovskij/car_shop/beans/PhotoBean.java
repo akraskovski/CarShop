@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class PhotoBean implements Serializable{
+public class PhotoBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private UploadedFile uploadedFile;
@@ -28,7 +28,7 @@ public class PhotoBean implements Serializable{
     private List<String> background;
 
     @PostConstruct
-    public void init(){
+    public void init() {
         streams = new ArrayList<>();
         photos = new ArrayList<>();
         background = new ArrayList<>();
@@ -40,11 +40,10 @@ public class PhotoBean implements Serializable{
         this.uploadedFile = e.getFile();
         InputStream input = uploadedFile.getInputstream();
         streams.add(input);
-        FacesContext.getCurrentInstance().addMessage(null,new FacesMessage("File(s) Uploaded Successfully"));
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("File(s) Uploaded Successfully"));
     }
 
-    public void savePhotosToSystem(){
-
+    public Boolean savePhotosToSystem() {
         if (streams.size() > 0) {
             for (InputStream input : streams) {
                 Photo photo = new Photo();
@@ -54,12 +53,15 @@ public class PhotoBean implements Serializable{
                     Files.copy(input, f.toPath(), StandardCopyOption.REPLACE_EXISTING);
                     photo.setPath(f.getName());
                     photos.add(photo);
-                }
-                catch (IOException e) {
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
+            streams.clear();
+            //photos.clear();
+            return true;
         }
+        return false;
     }
 
     public UploadedFile getUploadedFile() {

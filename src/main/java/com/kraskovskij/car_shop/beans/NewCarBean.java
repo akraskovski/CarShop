@@ -104,14 +104,13 @@ public class NewCarBean implements Serializable{
 
         carService.saveCar(car);
 
-        photoBean.savePhotosToSystem();
-        if(photoBean.getPhotos().size() > 0)
+        if(photoBean.savePhotosToSystem())
             for(Photo photo : photoBean.getPhotos()) {
                 photo.setCar(car);
                 photoService.savePhoto(photo);
                 car.addPhoto(photo);
             }
-
+        photoBean.getPhotos().clear();
         carBean.getAllCars().add(car);
         return "admin-index";
     }

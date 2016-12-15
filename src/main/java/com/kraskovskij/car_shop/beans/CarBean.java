@@ -14,10 +14,15 @@ import org.primefaces.model.map.Marker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.SessionScope;
 
 import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
 import java.io.File;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Component
@@ -96,5 +101,11 @@ public class CarBean implements Serializable {
         optionsService.updateOptions(selectedCar.getOptions());
         carService.updateCar(selectedCar);
         return "admin-index";
+    }
+
+    public List<Car> getSortedCars(){
+        List<Car> sort = allCars;
+        Collections.reverse(sort);
+        return sort;
     }
 }
